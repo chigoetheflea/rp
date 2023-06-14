@@ -1,0 +1,146 @@
+.main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+
+  color: @green;
+
+  background-color: rgba(227, 180, 139, 0.75);
+
+  a:not(.button) {
+    color: @green;
+  }
+
+  &--closed {
+    opacity: 0;
+    pointer-events: none;
+
+    transition-delay: 0.2s;
+    transition-duration: 0.5s;
+
+    .main-menu__wrapper {
+      transform: scale(0.9);
+      opacity: 0;
+
+      transition-duration: 0.3s;
+    }
+  }
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+
+    .main-menu__wrapper {
+      transform: scale(1);
+      opacity: 1;
+
+      transition-delay: 0.1s;
+      transition-duration: 0.7s;
+    }
+  }
+}
+
+.main-menu__wrapper {
+  .transition();
+
+  position: relative;
+
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    "logo close"
+    "menu menu"
+    "contacts cart";
+  width: 100%;
+  height: 100%;
+
+  background-color: white;
+  overflow-y: auto;
+}
+
+.main-menu__logo {
+  grid-area: logo;
+
+  img {
+    width: 215px;
+    height: 150px;
+  }
+}
+
+.main-menu__close-wrapper {
+  grid-area: close;
+  justify-self: end;
+}
+
+.main-menu__content {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.main-menu__content-wrapper {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.main-menu__list {
+  .list-style-none();
+
+  margin-top: 20px;
+
+  li {
+    margin: 8px 0;
+  }
+}
+
+.main-menu__contacts {
+  grid-area: contacts;
+
+  a {
+    font-size: 30px;
+    line-height: 1;
+    font-family: 'Prata', serif;
+    text-decoration: none;
+    color: @green;
+  }
+
+  address {
+    margin-top: 10px;
+    font-style: normal;
+  }
+}
+
+.main-menu__cart {
+  grid-area: cart;
+  justify-self: end;
+  align-self: end;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Prata', serif;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1;
+  }
+}
+
+.main-menu__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+

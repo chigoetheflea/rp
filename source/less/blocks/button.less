@@ -1,0 +1,151 @@
+.button {
+  .transition();
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 40px;
+
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 700;
+
+  background: none;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    .transition();
+
+    position: absolute;
+    top: 50%;
+
+    width: 16px;
+    height: 16px;
+    border-radius: 40%;
+
+    content: '';
+  }
+
+  &::before {
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  &:focus {
+    outline: 1px dotted @gold;
+    outline-offset: 5px;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      left: 0;
+      transform: translate(-100%, -50%);
+    }
+
+    &::after {
+      right: 0;
+      transform: translate(100%, -50%);
+    }
+  }
+
+  &:disabled {
+    opacity: @disabled-opacity;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--gold {
+    color: @green;
+    background-color: @gold;
+
+    &::after,
+    &::before {
+      background-color: @green;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @gold-dark;
+      color: @green;
+    }
+
+    &:active {
+      background-color: @gold-light;
+    }
+  }
+
+  &--green {
+    color: @green;
+
+    .button__overlay {
+      .transition();
+
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      border: 1px solid @green;
+    }
+
+    &::after,
+    &::before {
+      z-index: 100;
+      background-color: white;
+      border: 1px solid @green;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @gold-dark;
+      border-color: @gold-dark;
+      color: @green;
+
+      .button__overlay {
+        border-color: @gold-dark;
+      }
+    }
+
+    &:focus {
+      outline-color: @gold;
+    }
+
+    &:active {
+      background-color: @gold-light;
+      border-color: @gold-light;
+
+      .button__overlay {
+        border-color: @gold-light;
+      }
+    }
+  }
+
+  &--small-green {
+    padding: 10px 25px;
+    border-radius: 18px;
+    color: @gold;
+    border: 1px solid @gold;
+
+    &:hover,
+    &:focus {
+      color: @green;
+      background-color: @gold;
+    }
+
+    &:active {
+      background-color: @gold-light;
+      border-color: @gold-light;
+    }
+  }
+}

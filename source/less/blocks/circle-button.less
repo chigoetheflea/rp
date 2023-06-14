@@ -1,0 +1,76 @@
+.circle-button {
+  .transition();
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  border-radius: @outline-br;
+  cursor: pointer;
+
+  svg {
+    .transition(svg);
+
+    fill: @gold;
+    pointer-events: none;
+  }
+
+  &::after {
+    .transition();
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 49%;
+    border: 1px solid @gold;
+    transform: rotate(20deg);
+    content: '';
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: @green;
+    }
+
+    &::after {
+      border-color: @gold-dark;
+      background-color: @gold-dark;
+    }
+  }
+
+  &:active {
+    &::after {
+      background-color: @gold-light;
+      border-color: @gold-light;
+    }
+  }
+
+  &--no-border {
+    &::after {
+      display: none;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: @gold-dark;
+      }
+    }
+
+    &:active {
+      svg {
+        fill: @gold-light
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.home {
+  color: @gold;
+  background: @green url('../img/bg_noise.jpg') 50% 50%;
+  background-blend-mode: multiply;
+
+  *::selection {
+    color: @green;
+    background-color: @gold;
+  }
+
+  a:not(.button) {
+    color: @gold;
+
+    &:hover,
+    &:focus {
+      color: @gold-dark;
+    }
+
+    &:focus {
+      outline-color: @gold;
+    }
+
+    &:active {
+      opacity: @active-opacity;
+    }
+  }
+
+  button {
+    &:focus {
+      outline-color: @gold;
+    }
+  }
+}
+

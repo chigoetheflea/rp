@@ -1,0 +1,76 @@
+.frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.frame__border {
+  position: relative;
+  z-index: 10;
+  border: 1px solid @gold;
+  padding: 45px;
+  height: 100%;
+}
+
+.frame__content {
+  height: 100%;
+  overflow: hidden;
+  background-color: @gold;
+  border-radius: 30px;
+}
+
+.frame__decor {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50px;
+
+  &::after,
+  &::before {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: @green;
+    border-radius: 40%;
+    border: 1px solid @gold;
+    content: '';
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &--top {
+    top: 0;
+
+    &::before {
+      transform: translate(-45%, -45%);
+    }
+
+    &::after {
+      transform: translate(45%, -45%);
+    }
+  }
+
+  &--bottom {
+    bottom: 0;
+
+    &::before {
+      transform: translate(-45%, 45%);
+    }
+
+    &::after {
+      transform: translate(45%, 45%);
+    }
+  }
+}
+
+
+
+

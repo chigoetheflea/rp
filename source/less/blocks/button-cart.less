@@ -1,0 +1,66 @@
+.button-cart {
+  .transition();
+
+  position: relative;
+  border-radius: @outline-br;
+
+  svg {
+    .transition(svg);
+
+    fill: @gold;
+  }
+
+  &--not-empty {
+    &::after {
+      position: absolute;
+      top: 2px;
+      left: -4px;
+
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+
+      background-color: @gold;
+      animation: bounce-middle infinite 1s;
+
+      content: '';
+    }
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: @gold-dark;
+    }
+  }
+
+  &:active {
+    svg {
+      fill: @gold-light;
+    }
+  }
+
+  &--green {
+    svg {
+      fill: @green;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: @gold-dark;
+      }
+    }
+
+    &:active {
+      opacity: @active-opacity;
+    }
+  }
+
+  &--right.button-cart--not-empty {
+    &::after {
+      left: auto;
+      right: 0;
+    }
+  }
+}

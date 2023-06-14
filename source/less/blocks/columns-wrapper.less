@@ -1,0 +1,16 @@
+.columns-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: @gap;
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--cells-8 {
+    max-width: calc((100% - @gap) / 5 * 4);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

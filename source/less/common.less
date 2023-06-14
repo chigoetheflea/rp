@@ -1,0 +1,83 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+
+  min-width: 360px;
+  min-height: 100vh;
+
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: @green;
+  text-rendering: optimizeLegibility;
+
+  background-color: #ffffff;
+
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+*::selection {
+  color: @green;
+  background-color: @gold;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  .transition();
+
+  color: @green;
+
+  &:hover,
+  &:focus {
+    color: @gold-dark;
+  }
+
+  &:focus {
+    outline: 1px dotted @green;
+    outline-offset: 5px;
+  }
+
+  &:active {
+    text-decoration: dotted;
+  }
+}
+
+a:not(.button) {
+  border-radius: @outline-br;
+}
+
+button {
+  .transition();
+
+  &:focus {
+    outline: 1px dotted @green;
+    outline-offset: 3px;
+  }
+}
+
+em, i {
+  font-style: normal !important;
+}
+
+p:empty {
+  display: none !important;
+}
+
+[data-speed] {
+  will-change: transform;
+}

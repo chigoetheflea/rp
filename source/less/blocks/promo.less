@@ -1,0 +1,41 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end
+}
+
+.promo__title {
+  align-self: flex-end;
+}
+
+.promo__list {
+  .list-style-none();
+
+  margin-top: 15px;
+
+  li {
+    position: relative;
+    padding: 15px 0;
+    text-align: right;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      height: 2px;
+      width: 200px;
+
+      background-image: url('../img/icon_dots_gold.svg') ;
+      background-size: auto 2px;
+
+      content: '';
+    }
+
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

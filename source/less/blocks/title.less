@@ -1,0 +1,149 @@
+.title {
+  margin: 0;
+  font-family: "Prata", "Times New Roman";
+  font-weight: 500;
+
+  &--regular {
+    font-size: 80px;
+    line-height: 1.15;
+  }
+
+  &--medium {
+    font-size: 60px;
+    line-height: 1.18;
+  }
+
+  &--small {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
+  &--center {
+    width: 100%;
+    text-align: center;
+  }
+
+  &--strong {
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  &--frame {
+    position: relative;
+    align-self: baseline;
+    padding: 10px 25px;
+
+    font-size: 36px;
+    line-height: 1;
+    background-color: @gold;
+    color: @green;
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      background: url('../img/icon_star_gold.svg') 50% 50%;
+      content: '';
+    }
+
+    &::before {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      right: 0;
+      transform: translate(49%, -50%);
+    }
+  }
+}
+
+@media (max-width: @break-point-0) {
+  .title {
+    &--regular {
+      font-size: 64px;
+      line-height: 75px;
+    }
+
+    &--small {
+      font-size: 36px;
+      line-height: 45px;
+    }
+  }
+}
+
+@media (max-width: @break-point-1) {
+  .title {
+    &--regular {
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    &--small {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .title {
+    &--verysmall {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .title {
+    &--regular {
+      font-size: 42px;
+      line-height: 50px;
+    }
+
+    &--small {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .title {
+    &--verysmall {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .title {
+    &--regular {
+      font-size: 36px;
+      line-height: 45px;
+    }
+
+    &--small {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    &--tiny {
+      font-size: 20px;
+      line-height: 25px;
+    }
+
+    &--verysmall {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+.footer {
+  padding-bottom: 250px;
+  background: url('../img/pattern_gold.svg') repeat-x;
+  background-position: 50% 100%;
+  background-size: auto 200px;
+}
+
+.footer__decor-2 {
+  height: 30px;
+  border-left: 1px solid @gold;
+  border-right: 1px solid @gold;
+}
+
+.footer__content {
+  border-top: 1px solid @gold;
+}
+
+.footer__columns {
+  padding-top: 50px;
+}
+
+.footer__logo {
+  img {
+    width: 169px;
+    height: 118px;
+  }
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 100px;
+
+  a {
+    align-self: baseline;
+    text-decoration: none;
+  }
+}
+
+.footer__phones {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer__address {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  p {
+    margin: 0;
+  }
+
+  svg {
+    .transition(svg);
+
+    fill: @gold;
+  }
+
+  a {
+    width: 36px;
+    height: 33px;
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: @gold-dark;
+      }
+    }
+
+    &:active {
+      svg {
+        fill: @gold-light;
+      }
+    }
+  }
+}
+
+.footer__payment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 75px;
+
+  svg {
+    fill: @gold;
+  }
+}
+
+.footer__copyright {
+  margin-top: 75px;
+  text-decoration: underline;
+}
+
+.footer__menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.footer__menu-wrapper {
+  .list-style-none();
+
+  margin-top: 30px;
+
+  li {
+    margin-top: 10px;
+  }
+}
+
+.footer__projects {
+  margin-top: 100px;
+
+  p {
+    display: block;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+    line-height: 1;
+  }
+}
+
+.footer__projects-wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}

@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.header__logo {
+  border-radius: @outline-br;
+
+  img {
+    width: 215px;
+    height: 150px;
+  }
+}
+
+.header__controls {
+  display: flex;
+  align-self: baseline;
+  gap: 50px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.header__phone {
+  font-size: 30px;
+  line-height: 1;
+  font-family: 'Prata', serif;
+  text-decoration: none;
+  border-radius: @outline-br;
+}
+
+.header__address {
+  font-style: normal;
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.3;
+}

@@ -14,3 +14,35 @@
     margin-right: auto;
   }
 }
+
+@media (max-width: @break-point-0) {
+  .columns-wrapper {
+    &--cells-8 {
+      max-width: calc(100% - 200px);
+    }
+  }
+}
+
+@media (max-width: @break-point-1) {
+  .columns-wrapper {
+    &--cells-8 {
+      max-width: calc(100% - 150px);
+    }
+  }
+}
+
+@media (max-width: @break-point-2) {
+  .columns-wrapper {
+    &--cells-8 {
+      max-width: calc(100% - 100px);
+    }
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .columns-wrapper {
+    &--cells-8 {
+      max-width: 100%;
+    }
+  }
+}

@@ -47,6 +47,62 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 15px 30px;
   width: 33.33%;
+}
+
+@media (max-width: @break-point-2) {
+  .seasons__image {
+    width: 300px;
+    height: 220px;
+
+    &--circle {
+      width: 220px;
+      height: 280px;
+    }
+  }
+
+  .seasons__food {
+    padding-top: 280px;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .seasons__wrapper {
+    flex-direction: column;
+  }
+
+  .seasons__title,
+  .seasons__links {
+    width: 100%;
+  }
+
+  .seasons__title {
+    text-align: center;
+
+    p {
+      text-align: left;
+    }
+  }
+
+  .seasons__links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .seasons__image {
+    width: 250px;
+    height: 180px;
+
+    &--circle {
+      width: 200px;
+      height: 240px;
+    }
+  }
+
+  .seasons__food {
+    padding-top: 240px;
+  }
 }

@@ -19,7 +19,7 @@
 }
 
 .hall__right {
-  padding-right: 30px;
+  padding-left: 50px;
 }
 
 .hall__props-item {
@@ -36,10 +36,80 @@
 .hall__controls {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 15px 30px;
   margin-top: 50px;
 }
 
 .hall__button {
   align-self: baseline;
+}
+
+@media (max-width: @break-point-1) {
+  .hall__image {
+    height: 500px;
+  }
+
+  .hall__title {
+    margin-top: 50px;
+  }
+
+  .halls__navigation {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: @break-point-2) {
+  .hall__image {
+    width: 350px;
+    height: 450px;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .hall__left {
+    justify-content: center;
+    padding: 50px 0 0 0;
+  }
+
+  .hall__right {
+    padding: 0;
+  }
+
+  .hall__image {
+    width: 400px;
+    height: 450px;
+  }
+
+  .hall__title {
+    margin-top: 0;
+  }
+
+  .hall__controls {
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .hall__image {
+    width: calc(100vw - 100px);
+    height: calc(100vw - 40px);
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .hall__left {
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .hall__controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hall__button {
+    align-self: center;
+  }
 }

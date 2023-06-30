@@ -66,3 +66,23 @@
     object-fit: cover;
   }
 }
+
+@media (max-width: @break-point-1) {
+  .circle-media {
+    &--frame {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .circle-media {
+    &--frame-alt {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

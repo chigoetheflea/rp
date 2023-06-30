@@ -104,6 +104,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  gap: 30px;
   margin-top: 30px;
 }
 
@@ -138,4 +139,111 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+}
+
+@media (max-width: @break-point-2) {
+  .footer__columns {
+    padding-top: 30px;
+  }
+
+  .footer__left,
+  .footer__right {
+    min-width: 100%;
+  }
+
+  .footer__left {
+    position: relative;
+    order: 1;
+    align-items: center;
+    padding-top: 50px;
+    border-top: 1px solid @gold;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 20;
+
+      width: 15px;
+      height: 15px;
+
+      background: url('../img/icon_star_gold.svg') 50% 50%;
+      transform: translate(-50%, -50%);
+      content: '';
+    }
+  }
+
+  .footer__projects {
+    margin-top: 50px;
+  }
+
+  .footer__projects-wrapper {
+    margin-top: 0;
+  }
+
+  .footer__contacts {
+    margin-top: 50px;
+
+    a {
+      align-self: center;
+    }
+  }
+
+  .footer__phones {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px 50px;
+  }
+
+  .footer__social {
+    justify-content: center;
+  }
+
+  .footer__payment {
+    align-items: center;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .footer__menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 30px;
+  }
+
+  .footer__menu-column {
+    width: calc((100% - 30px) / 2);
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .footer__projects-wrapper {
+    gap: 0;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .footer__menu-column {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer__projects-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .footer__address {
+    text-align: center;
+  }
+
+  .footer__social {
+    flex-wrap: wrap;
+
+    p {
+      width: 100%;
+      text-align: center;
+    }
+  }
 }

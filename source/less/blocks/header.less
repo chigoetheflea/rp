@@ -42,4 +42,71 @@
   text-align: right;
   font-size: 18px;
   line-height: 1.3;
+
+  span {
+    display: block;
+  }
+}
+
+@media (max-width: @break-point-2) {
+  .header__logo {
+    img {
+      width: 145px;
+      height: 100px;
+    }
+  }
+
+  .header__phone {
+    font-size: 24px;
+  }
+
+  .header__address {
+    font-size: 16px;
+  }
+
+  .header__contacts {
+    margin-top: 30px;
+  }
+
+  .header__controls {
+    gap: 30px;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .header__controls {
+    order: 2;
+  }
+
+  .header__logo {
+    order: 1;
+  }
+
+  .header__contacts {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+
+  .header__address {
+    span {
+      display: inline;
+    }
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .header__contacts {
+    flex-direction: column;
+    gap: 10px 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .header__address {
+    font-size: 13px;
+  }
 }

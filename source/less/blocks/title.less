@@ -75,51 +75,32 @@
       font-size: 36px;
       line-height: 45px;
     }
+
+    &--medium {
+      font-size: 48px;
+    }
   }
 }
 
 @media (max-width: @break-point-1) {
   .title {
     &--regular {
-      font-size: 48px;
-      line-height: 60px;
+      font-size: 60px;
+      line-height: 1.15;
     }
 
-    &--small {
-      font-size: 32px;
-      line-height: 38px;
-    }
-  }
-}
-
-@media (max-width: @break-point-tablet) {
-  .title {
-    &--verysmall {
-      font-size: 28px;
-      line-height: 36px;
-    }
-  }
-}
-
-@media (max-width: @break-point-3) {
-  .title {
-    &--regular {
-      font-size: 42px;
-      line-height: 50px;
-    }
-
-    &--small {
-      font-size: 30px;
-      line-height: 36px;
-    }
-  }
-}
-
-@media (max-width: @break-point-4) {
-  .title {
-    &--verysmall {
+    &--frame {
+      padding: 6px 15px;
       font-size: 24px;
-      line-height: 30px;
+    }
+  }
+}
+
+@media (max-width: @break-point-2) {
+  .title {
+    &--medium {
+      font-size: 36px;
+      line-height: 45px;
     }
   }
 }
@@ -127,23 +108,12 @@
 @media (max-width: @break-point-mobile) {
   .title {
     &--regular {
-      font-size: 36px;
-      line-height: 45px;
+      font-size: 48px;
     }
 
     &--small {
-      font-size: 24px;
-      line-height: 30px;
-    }
-
-    &--tiny {
-      font-size: 20px;
-      line-height: 25px;
-    }
-
-    &--verysmall {
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 28px;
+      line-height: 35px;
     }
   }
 }

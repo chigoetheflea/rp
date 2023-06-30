@@ -547,16 +547,16 @@ document.addEventListener(`DOMContentLoaded`, function() {
       smooth: 1.1,
       effects: true,
     });
-
-    gsap.fromTo(`.js-food`, {x: 0}, {
-      x: -2000,
-      scrollTrigger: {
-        trigger: `.js-food-trigger`,
-        scrub: true,
-        end: `2500`,
-      },
-    });
   }
+
+  gsap.fromTo(`.js-food`, {x: 0}, {
+    x: -2000,
+    scrollTrigger: {
+      trigger: `.js-food-trigger`,
+      scrub: true,
+      end: `2500`,
+    },
+  });
 
   /* gsap */
 

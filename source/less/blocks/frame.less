@@ -71,6 +71,30 @@
   }
 }
 
+@media (max-width: @break-point-2) {
+  .frame__border {
+    padding: 30px;
+  }
 
+  .frame__content {
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .frame__border {
+    padding: 20px;
+  }
+
+  .frame__decor {
+    height: 30px;
+
+    &::after,
+    &::before {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
 
 

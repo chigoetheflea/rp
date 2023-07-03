@@ -1,0 +1,45 @@
+.cta {
+  background: @gold url('../img/bg_noise.jpg') 50% 50%;
+  background-blend-mode: color-burn;
+}
+
+.cta__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cta__title {
+  max-width: 600px;
+  flex-shrink: 0;
+
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.cta__arrow {
+  flex-grow: 1;
+}
+
+.cta__body {
+  display: flex;
+  gap: 15px 30px;
+}
+
+@media (max-width: @break-point-2) {
+  .cta__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .cta__wrapper {
+    flex-wrap: wrap;
+  }
+
+  .cta__title {
+    width: 100%;
+    text-align: center;
+  }
+}

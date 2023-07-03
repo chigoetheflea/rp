@@ -73,4 +73,35 @@
       }
     }
   }
+
+  &--green {
+    svg {
+      fill: @green;
+    }
+
+    &::after {
+      border-color: @green;
+    }
+
+    &:active {
+      svg {
+        fill: white;
+      }
+
+      &::after {
+        background-color: @green;
+        border-color: @green;
+      }
+    }
+  }
+
+  &--green.circle-button--no-border {
+    &:active {
+      opacity: @active-opacity;
+
+      svg {
+        fill: @green;
+      }
+    }
+  }
 }

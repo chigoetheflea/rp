@@ -1,0 +1,40 @@
+@arrow_thickness: 1px;
+
+.arrow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 31px;
+
+  overflow: hidden;
+
+  &::after,
+  &::before {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: @arrow_thickness solid @green;
+    content: '';
+  }
+
+  &--to-right {
+    &::before {
+      right: -30px;
+      top: -44px;
+    }
+
+    &::after {
+      right: -30px;
+      bottom: -44px;
+    }
+  }
+}
+
+.arrow__heart {
+  background-color: @green;
+  width: 100%;
+  height: @arrow_thickness;
+}

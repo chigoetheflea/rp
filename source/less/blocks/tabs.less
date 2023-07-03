@@ -1,0 +1,61 @@
+.tabs {
+  &--menu {
+    .tabs__content {
+      display: block;
+      pointer-events: auto;
+    }
+  }
+}
+
+.tabs__button {
+  position: relative;
+
+  &::after {
+    .transition();
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+
+    background: url('../img/icon_dots_green.svg') 50% 50% repeat-x;
+
+    transform: translateX(-50%);
+    opacity: 0;
+    content: '';
+  }
+
+  &--active {
+    &::after {
+      width: 90%;
+      opacity: 100%;
+    }
+  }
+
+  &.current-menu-item {
+    &::after {
+      width: 90%;
+      opacity: 100%;
+    }
+  }
+}
+
+.tabs__content {
+  display: none;
+  padding: 50px 0;
+  pointer-events: none;
+
+  &--active {
+    display: block;
+    pointer-events: auto;
+
+    animation-fill-mode: forwards;
+    animation: fade-in 1s 1;
+  }
+}
+
+.tabs__frame {
+  margin-top: 30px;
+}

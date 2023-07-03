@@ -1,0 +1,46 @@
+.bordered-links__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 30px;
+  padding: 12px 20px;
+
+  border-left: 1px solid @green;
+  border-right: 1px solid @green;
+}
+
+.bordered-links__button {
+  padding: 10px 15px;
+
+  color: @green;
+  font-weight: 700;
+  text-decoration: none;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: @outline-br;
+
+  &:hover,
+  &:focus {
+    color: @gold-dark;
+  }
+
+  &:active {
+    color: @green;
+    opacity: @active-opacity;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .bordered-links__button {
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .bordered-links__button {
+    padding: 0;
+  }
+}

@@ -49,6 +49,41 @@
       }
     }
   }
+
+  &--green {
+    color: @green;
+
+    .menu-button__burger {
+      background-color: @green;
+
+      &::after,
+      &::before {
+        background-color: @green;
+      }
+    }
+
+    &:focus {
+      outline-color: @green;
+    }
+
+    &:active {
+      color: @green;
+      opacity: @active-opacity;
+
+      .menu-button__burger {
+        background-color: @green;
+
+        &::after,
+        &::before {
+          background-color: @green;
+        }
+      }
+    }
+  }
+}
+
+.menu-button__name {
+  margin-top: 3px;
 }
 
 .menu-button__burger {
@@ -90,5 +125,11 @@
 
   .menu-button__name {
     display: none;
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .menu-button {
+    width: 35px;
   }
 }

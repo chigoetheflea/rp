@@ -35,6 +35,28 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
+
+  &--green {
+    .slider__navigation-separator,
+    .slider__text-button {
+      color: @green;
+    }
+
+    .slider__text-button {
+      svg {
+        fill: @green;
+      }
+
+      &:active {
+        color: @green;
+        opacity: @active-opacity;
+
+        svg {
+          fill: @green;
+        }
+      }
+    }
+  }
 }
 
 .slider__navigation-text {

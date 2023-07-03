@@ -42,13 +42,21 @@ const FORM_RESULT_TIMEOUT = 2000;
 const FORM_ALERT_ERROR = `Ошибка отправки!`;
 const FORM_ALERT_SUCCESS = `Отправлено!`;
 const FORM_METHOD = `POST`;
-const FORM_SERVER_URL = (typeof phpHandler !== `undefined` ) ? phpHandler.url : `https://n-bpartners.ru/wp-content/themes/berkovich/lib/mail_handler.php`;
+const FORM_SERVER_URL = (typeof phpHandler !== `undefined` ) ? phpHandler.url : `https://@/wp-content/themes/berkovich/lib/mail_handler.php`;
 const FORM_FIELD_DEFAULT_VALUE = ``;
 const FORM_SUBMIT = `.js-submit`;
 const FORM_AGREE = `.js-agree`;
 const FORM_DATE = '.js-date-picker';
 const FORM_DATE_FORMAT = `F j, Y`;
 const FORM_MASK = `.js-masked-input`;
+
+const SELECT = `.js-select`;
+const SELECT_BUTTON = `.js-select-button`;
+const SELECT_LIST = `.js-select-list`;
+const SELECT_INPUT = `js-select-input`;
+const SELECT_ACTIVE_CLASS = `like-select__list--active`;
+const SELECT_BUTTON_ACTIVE_CLASS = `like-select__button--active`;
+const SELECT_CURRENT_OPTION_CLASS = `like-select__current`;
 
 const VALIDATE_FIELD = `[data-validate='true']`;
 const VALIDATE_TRUE_CLASS = `form__input--success`;
@@ -58,6 +66,17 @@ const MAP = `#map`;
 const MAP_HINT = `Ресторан «Русское Подворье»`;
 const MAP_BALLOON_CONTENT = `Русское Подворье`;
 const MAP_MARKER_PATH = `img/map_marker.svg`;
+
+const GSAP_WRAPPER = `.js-gsap-wrapper`;
+const GSAP_CONTENT = `.js-gsap-content`;
+const GSAP_FOOD = `.js-food`;
+const GSAP_FOOD_TRIGGER = `.js-food-trigger`;
+
+const TABS = `.js-tabs`;
+const TABS_BUTTON = `[role='tab']`;
+const TABS_CONTENT = `[role='tabpanel']`;
+const TABS_BUTTON_ACTIVE_CLASS = `tabs__button--active`;
+const TABS_CONTENT_ACTIVE_CLASS = `tabs__content--active`;
 
 const Test = {
   REQUIRED: `required`,
@@ -151,28 +170,32 @@ document.addEventListener(`DOMContentLoaded`, function() {
       const sliderWrapper = sliderContainer.querySelector(SLIDER);
       const sliderNavigation = sliderContainer.querySelector(SLIDER_NAV);
       const sliderDots = sliderContainer.querySelector(SLIDER_DOTS);
+      const initDelay = (sliderSettings.initDelay) ? sliderSettings.initDelay : 0;
+      let slider = null;
 
       sliderWrapper.classList.add(...SLIDER_CLASSES);
 
-      const slider = Peppermint(
-        sliderWrapper, {
-          ...sliderSettings,
-          dotsContainer: sliderDots,
-          onSlideChange: (slideNumber) => {
+      setTimeout(() => {
+        slider = Peppermint(
+          sliderWrapper, {
+            ...sliderSettings,
+            dotsContainer: sliderDots,
+            onSlideChange: (slideNumber) => {
 
-            if (sliderSettings.changeNavText) {
-              changeSlidesNavText(sliderWrapper, sliderNavigation, slideNumber);
-            }
+              if (sliderSettings.changeNavText) {
+                changeSlidesNavText(sliderWrapper, sliderNavigation, slideNumber);
+              }
 
-            if (sliderSettings.useImgAnimation) {
-              addAnimationToImg(sliderWrapper, slideNumber);
-            }
-          },
-      });
+              if (sliderSettings.useImgAnimation) {
+                addAnimationToImg(sliderWrapper, slideNumber);
+              }
+            },
+        });
 
-      if (sliderNavigation) {
-        sliderNavigation.addEventListener(`click`, handleSliderControlClick.bind(null, slider, sliderContainer));
-      }
+        if (sliderNavigation) {
+          sliderNavigation.addEventListener(`click`, handleSliderControlClick.bind(null, slider, sliderContainer));
+        }
+      }, initDelay);
 
       return slider;
     }
@@ -231,6 +254,12 @@ document.addEventListener(`DOMContentLoaded`, function() {
     dots: false,
     useImgAnimation: true,
     changeNavText: true,
+  });
+
+  const sliderMenu = initSlider(document.querySelector(`.js-slider-menu`), {
+    ...SlidersSettings,
+    slideshow: false,
+    dots: false,
   });
 
   /* sliders */
@@ -328,15 +357,31 @@ document.addEventListener(`DOMContentLoaded`, function() {
     const fields = Array.from(form.querySelectorAll(FORM_INPUT));
     const resultField = form.querySelector(FORM_RESULT);
     const submitButton = form.querySelector(FORM_SUBMIT);
-    const formAgree = form.querySelector(FORM_AGREE);
     let fieldResetValue = FORM_FIELD_DEFAULT_VALUE;
 
     fields.map((field) => {
+      console.log(field);
+      if (field.classList.contains(SELECT_INPUT)) {
+        const selectButton = field.parentNode.querySelector(SELECT_BUTTON);
+        const selectList = field.parentNode.querySelector(`.${SELECT_CURRENT_OPTION_CLASS}`);
+        const selectDefaultValue = selectButton.dataset.default;
+
+        selectButton.querySelector(`span`).textContent = selectDefaultValue;
+        selectList.classList.remove(SELECT_CURRENT_OPTION_CLASS);
+
+        fieldResetValue = selectDefaultValue;
+      }
+
+      if (field.classList.contains(FILE_INPUT)) {
+        field.files = null;
+
+        const fileUpload = field.parentNode.querySelector(FILE_MARK);
+        fileUpload.textContent = fileUpload.dataset.default;
+      }
+
       field.value = fieldResetValue;
     });
 
-    submitButton.disabled = true;
-    formAgree.checked = false;
     resultField.classList.remove(FORM_RESULT_ACTIVE_CLASS);
   };
 
@@ -526,7 +571,7 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   const formMasks = Array.from(document.querySelectorAll(FORM_MASK));
 
-  if (formMasks) {
+  if (formMasks.length) {
     formMasks.map((formMask) => {
       const maskType = formMask.dataset.mask;
 
@@ -536,27 +581,117 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* input masks */
 
-  /* gsap */
+  /* form select */
 
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  const customSelects = Array.from(document.querySelectorAll(SELECT));
 
-  if (!ScrollTrigger.isTouch) {
-    ScrollSmoother.create({
-      wrapper: `.js-gsap-wrapper`,
-      content: `.js-gsap-content`,
-      smooth: 1.1,
-      effects: true,
+  const chooseOption = (select, option) => {
+    const currentOption = select.querySelector(`.${SELECT_CURRENT_OPTION_CLASS}`);
+    const selectButton = select.querySelector(`${SELECT_BUTTON}>span`);
+    const selectInput = select.querySelector(`.${SELECT_INPUT}`);
+
+    if (currentOption) {
+      currentOption.classList.remove(SELECT_CURRENT_OPTION_CLASS);
+    }
+
+    option.classList.add(SELECT_CURRENT_OPTION_CLASS);
+    selectInput.value = option.textContent;
+    selectButton.textContent = option.textContent;
+
+    toggleSelectList(select);
+  };
+
+  const handleOptionClick = (evt) => {
+    evt.preventDefault();
+
+    const select = evt.target.closest(SELECT);
+
+    chooseOption(select, evt.target);
+  };
+
+  const handleBodyClick = (evt) => {
+    if (!evt.target.closest(SELECT)) {
+      customSelects.forEach((select) => {
+        const list = select.querySelector(SELECT_LIST);
+        const isListOpen = list.classList.contains(SELECT_ACTIVE_CLASS);
+
+        if (isListOpen) {
+          toggleSelectList(select);
+        }
+      });
+    }
+  };
+
+  const toggleSelectList = (select) => {
+    const list = select.querySelector(SELECT_LIST);
+    const selectButton = select.querySelector(SELECT_BUTTON);
+
+    list.classList.toggle(SELECT_ACTIVE_CLASS);
+    selectButton.classList.toggle(SELECT_BUTTON_ACTIVE_CLASS);
+
+    const isListOpen = list.classList.contains(SELECT_ACTIVE_CLASS);
+
+    if (isListOpen) {
+      list.addEventListener(`click`, handleOptionClick);
+
+      document.documentElement.addEventListener(`click`, handleBodyClick);
+    } else {
+      list.removeEventListener(`click`, handleOptionClick);
+
+      document.documentElement.removeEventListener(`click`, handleBodyClick);
+    }
+  };
+
+  const handleSelectClick = (select, evt) => {
+    evt.preventDefault();
+
+    toggleSelectList(select);
+  };
+
+  if (customSelects.length) {
+    customSelects.map((select) => {
+      const selectButton = select.querySelector(SELECT_BUTTON);
+
+      selectButton.addEventListener(`click`, handleSelectClick.bind(null, select));
     });
   }
 
-  gsap.fromTo(`.js-food`, {x: 0}, {
-    x: -2000,
-    scrollTrigger: {
-      trigger: `.js-food-trigger`,
-      scrub: true,
-      end: `2500`,
-    },
-  });
+  /* form select */
+
+  /* date picker */
+
+  if (document.querySelectorAll(FORM_DATE).length) {
+    flatpickr(FORM_DATE, {
+      altFormat: FORM_DATE_FORMAT,
+      altInput: true,
+    });
+  }
+
+  /* date picker */
+
+  /* gsap */
+
+  if (document.querySelector(`body`).classList.contains(`home`)) {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    if (!ScrollTrigger.isTouch) {
+      ScrollSmoother.create({
+        wrapper: GSAP_WRAPPER,
+        content: GSAP_CONTENT,
+        smooth: 1.1,
+        effects: true,
+      });
+    }
+
+    gsap.fromTo(GSAP_FOOD, {x: 0}, {
+      x: -2000,
+      scrollTrigger: {
+        trigger: GSAP_FOOD_TRIGGER,
+        scrub: true,
+        end: `2500`,
+      },
+    });
+  }
 
   /* gsap */
 
@@ -568,10 +703,16 @@ document.addEventListener(`DOMContentLoaded`, function() {
   };
 
   const defaultCoords = [55.651942, 37.604732];
-  const coords = (typeof mapMarker !== `undefined`) ? (mapMarker.coords).replace(` `, ``).split(`,`) : defaultCoords;
-  const markerUrl = (typeof mapMarker !== `undefined`) ? mapMarker.url : MAP_MARKER_PATH;
-  const currentMarkerSize = MARKER_MOBILE_SIZE;
 
+  const coords = (typeof mapMarker !== `undefined`)
+    ? (mapMarker.coords).replace(` `, ``).split(`,`)
+    : defaultCoords;
+
+  const markerUrl = (typeof mapMarker !== `undefined`)
+    ? mapMarker.url
+    : MAP_MARKER_PATH;
+
+  const currentMarkerSize = MARKER_MOBILE_SIZE;
   const mapContainer = document.querySelector(MAP);
 
   if (mapContainer) {
@@ -601,4 +742,54 @@ document.addEventListener(`DOMContentLoaded`, function() {
   }
 
   /* map */
+
+  /* tabs */
+
+  const showTab = (tabs, tabIndex) => {
+    const tabsButtons = tabs.querySelectorAll(TABS_BUTTON);
+    const newActiveTabButton = tabs.querySelector(`[aria-controls='${tabIndex}']`);
+    const tabsContent = tabs.querySelectorAll(TABS_CONTENT);
+    const newActiveTab = tabs.querySelector(`#${tabIndex}`);
+
+    tabsButtons.forEach((tab) => {
+      tab.classList.remove(TABS_BUTTON_ACTIVE_CLASS);
+      tab.setAttribute(`aria-selected`, false);
+    });
+
+    newActiveTabButton.classList.add(TABS_BUTTON_ACTIVE_CLASS);
+    newActiveTabButton.setAttribute(`aria-selected`, true);
+
+    tabsContent.forEach((content) => {
+      content.classList.remove(TABS_CONTENT_ACTIVE_CLASS);
+    });
+
+    newActiveTab.classList.add(TABS_CONTENT_ACTIVE_CLASS);
+  };
+
+  const handleTabButtonClick = (tabs, evt) => {
+    const newActiveTabButton = evt.target;
+    const newActiveTabIndex = newActiveTabButton.getAttribute(`aria-controls`);
+
+    if (!newActiveTabButton.classList.contains(TABS_BUTTON_ACTIVE_CLASS)) {
+      showTab(tabs, newActiveTabIndex);
+    }
+  };
+
+  const tabsContainer = Array.from(document.querySelectorAll(TABS));
+
+  if (tabsContainer.length) {
+    tabsContainer.map((tabs) => {
+      const tabsButtons = tabs.querySelectorAll(TABS_BUTTON);
+      const defaultActiveTab = tabs.dataset.start;
+
+      showTab(tabs, defaultActiveTab);
+
+      tabsButtons.forEach((tabButton) => {
+        tabButton.addEventListener(`click`, handleTabButtonClick.bind(null, tabs));
+      });
+    });
+  }
+
+
+  /* tabs */
 });

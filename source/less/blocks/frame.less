@@ -2,12 +2,43 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+
+  &--green {
+    .frame__border {
+      border: 1px solid @green;
+    }
+
+    .frame__decor {
+      &::after,
+      &::before {
+        background-color: white;
+        border: 1px solid @green;
+      }
+    }
+
+    .frame__content {
+      border: 1px solid @green;
+    }
+  }
+
+  &--gold {
+    .frame__border {
+      border: 1px solid @gold;
+    }
+
+    .frame__decor {
+      &::after,
+      &::before {
+        background-color: @green;
+        border: 1px solid @gold;
+      }
+    }
+  }
 }
 
 .frame__border {
   position: relative;
   z-index: 10;
-  border: 1px solid @gold;
   padding: 45px;
   height: 100%;
 }
@@ -15,7 +46,6 @@
 .frame__content {
   height: 100%;
   overflow: hidden;
-  background-color: @gold;
   border-radius: 30px;
 }
 

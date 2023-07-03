@@ -1,8 +1,45 @@
 .footer {
   padding-bottom: 250px;
-  background: url('../img/pattern_gold.svg') repeat-x;
+  background-image: url('../img/pattern_gold.svg');
+  background-repeat: repeat-x;
   background-position: 50% 100%;
   background-size: auto 200px;
+
+  &--green {
+    background-image: url('../img/pattern_green.svg');
+    border-top: 1px solid @green;
+
+    .footer__decor-2,
+    .footer__content {
+      border-color: @green;
+    }
+
+    .footer__payment {
+      svg {
+        fill: @green;
+      }
+    }
+
+    .footer__social {
+      svg {
+        fill: @green;
+      }
+
+      a {
+        &:active {
+          opacity: @active-opacity;
+
+          svg {
+            fill: @green;
+          }
+        }
+      }
+    }
+  }
+
+  &--margin-top {
+    margin-top: 75px;
+  }
 }
 
 .footer__decor-2 {
@@ -20,9 +57,22 @@
 }
 
 .footer__logo {
+  align-self: baseline;
+
   img {
     width: 169px;
     height: 118px;
+  }
+
+  &[href] {
+    &:hover,
+    &:focus {
+      opacity: @hover-opacity;
+    }
+
+    &:active {
+      opacity: @active-opacity;
+    }
   }
 }
 
@@ -142,6 +192,18 @@
 }
 
 @media (max-width: @break-point-2) {
+  .footer {
+    &--green {
+      .footer__left {
+        border-color: @green;
+
+        &::before {
+          background: url('../img/icon_star_green.svg') 50% 50%;
+        }
+      }
+    }
+  }
+
   .footer__columns {
     padding-top: 30px;
   }
@@ -168,7 +230,7 @@
       height: 15px;
 
       background: url('../img/icon_star_gold.svg') 50% 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -55%);
       content: '';
     }
   }
@@ -202,6 +264,10 @@
 
   .footer__payment {
     align-items: center;
+  }
+
+  .footer__logo {
+    align-self: center;
   }
 }
 

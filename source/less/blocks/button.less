@@ -65,14 +65,10 @@
     pointer-events: none;
   }
 
-  &--gold {
+  &--gold,
+  &--gold-white {
     color: @green;
     background-color: @gold;
-
-    &::after,
-    &::before {
-      background-color: @green;
-    }
 
     &:hover,
     &:focus {
@@ -80,12 +76,66 @@
       color: @green;
     }
 
+    &:focus {
+      outline-color: @green;
+    }
+
     &:active {
-      background-color: @gold-light;
+      color: white;
+      background-color: @green;
     }
   }
 
-  &--green {
+  &--gold-white {
+    &::after,
+    &::before {
+      background-color: white;
+    }
+  }
+
+  &--gold {
+    &::after,
+    &::before {
+      background-color: @green;
+    }
+  }
+
+  &--solid-green {
+    color: white;
+    background-color: @green;
+    border: none;
+
+    &::after,
+    &::before {
+      z-index: 100;
+      background-color: @gold;
+      border: 1px solid @gold;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      border-color: white;
+      color: @green;
+    }
+
+    &:focus {
+      outline-color: @green;
+    }
+
+    &:active {
+      color: white;
+      background-color: @green;
+      border-color: @green;
+
+      .button__overlay {
+        border-color: @green;
+      }
+    }
+  }
+
+  &--green,
+  &--green-gold {
     color: @green;
 
     .button__overlay {
@@ -102,38 +152,68 @@
     &::after,
     &::before {
       z-index: 100;
-      background-color: white;
       border: 1px solid @green;
+    }
+
+    &:focus {
+      outline-color: @green;
+    }
+  }
+
+  &--green {
+    &::after,
+    &::before {
+      background-color: white;
     }
 
     &:hover,
     &:focus {
       background-color: @gold-dark;
-      border-color: @gold-dark;
-      color: @green;
 
       .button__overlay {
         border-color: @gold-dark;
       }
     }
 
-    &:focus {
-      outline-color: @gold;
-    }
-
     &:active {
-      background-color: @gold-light;
-      border-color: @gold-light;
+      color: white;
+      background-color: @green;
+      border-color: @green;
 
       .button__overlay {
-        border-color: @gold-light;
+        border-color: @green;
       }
     }
   }
 
-  &--small-green {
+  &--green-gold {
+    &::after,
+    &::before {
+      background-color: @gold;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @green;
+      color: white;
+
+      .button__overlay {
+        border-color: @green;
+      }
+    }
+
+    &:active {
+      color: @gold;
+    }
+  }
+
+  &--small-gold-border,
+  &--small-green-border {
     padding: 10px 25px;
     border-radius: 18px;
+  }
+
+  &--small-gold-border {
     color: @gold;
     border: 1px solid @gold;
 
@@ -146,6 +226,52 @@
     &:active {
       background-color: @gold-light;
       border-color: @gold-light;
+    }
+  }
+
+  &--small-green-border {
+    color: @green;
+    border: 1px solid @green;
+
+    &:hover,
+    &:focus {
+      color: @green;
+      background-color: @gold-dark;
+      border-color: @gold-dark;
+    }
+
+    &:focus {
+      outline-color: @green;
+    }
+
+    &:active {
+      color: white;
+      background-color: @green;
+      border-color: @green;
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+    cursor: default;
+    opacity: @hover-opacity;
+    color: transparent;
+
+    &::after,
+    &::before {
+      top: 50%;
+      left: 50%;
+      transform: none;
+      animation: big-bounce infinite 1s linear;
+    }
+
+    &::before {
+      margin: -8px 0 0 -16px;
+    }
+
+    &::after {
+      margin: -8px 0 0 4px;
+      animation-delay: 0.2s;
     }
   }
 }

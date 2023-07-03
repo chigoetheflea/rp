@@ -1,0 +1,39 @@
+.prices__slider-navigation {
+  padding: 30px 0 5px 0;
+}
+
+.prices__slide {
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    width: 50%;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .prices__slide {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .prices__frame {
+    padding: 0;
+  }
+
+  .prices__decor {
+    display: none;
+  }
+
+  .prices__border {
+    padding: 0;
+    border: none !important;
+  }
+
+  .prices__content {
+    border: none !important;
+  }
+}

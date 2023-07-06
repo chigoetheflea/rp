@@ -1,0 +1,35 @@
+.blog-small__content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+.blog-small__title {
+  margin-top: 30px;
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+.blog-small__excerpt {
+  margin: 15px 0 0 0;
+}
+
+.blog-small__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+
+  time {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .blog-small__content {
+    padding: 0;
+  }
+}

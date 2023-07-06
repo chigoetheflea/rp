@@ -1,0 +1,45 @@
+.event-small {}
+
+.event-small__right {
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding-left: 75px;
+}
+
+.event-small__text {
+  margin: 0;
+}
+
+.event-small__props {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: @break-point-1) {
+  .event-small__right {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: @break-point-2) {
+  .event-small__right {
+    padding-left: 0;
+  }
+
+  .event-small__image {
+    align-self: baseline;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .event-small__title {
+    text-align: center;
+  }
+
+  .event-small__button,
+  .event-small__title {
+    align-self: center;
+  }
+}

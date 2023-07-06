@@ -1,11 +1,12 @@
 "use strict";
 
+const CLASS_REMOVING_TIME = 700;
+
 const MENU = `.js-menu`;
 const MENU_BUTTON = `.js-menu-button`;
 const MENU_CLOSE = `.js-menu-close`;
 const MENU_ACTIVE_CLASS = `main-menu--open`;
 const MENU_CLOSED_CLASS = `main-menu--closed`;
-const CLASS_REMOVING_TIME = 700;
 
 const SLIDER_CLASSES = [`peppermint`, `peppermint-inactive`];
 const SLIDER = `.js-slider`;
@@ -27,11 +28,10 @@ const MODAL_ACTIVE_CLASS = `modal--active`;
 const MODAL_CLOSED_CLASS = `modal--closed`;
 
 const SCROLL_BUTTON_CLASS = `.js-scroll`;
+const SCROLL_OFFSET = -50;
 
 const LOADING = `.js-loading`;
 const LOADING_HIDDEN_CLASS = `loading--hidden`;
-
-const SCROLL_OFFSET = -50;
 
 const FORM = `.form`;
 const FORM_VALIDATION = `.js-form`;
@@ -69,14 +69,19 @@ const MAP_MARKER_PATH = `img/map_marker.svg`;
 
 const GSAP_WRAPPER = `.js-gsap-wrapper`;
 const GSAP_CONTENT = `.js-gsap-content`;
-const GSAP_FOOD = `.js-food`;
-const GSAP_FOOD_TRIGGER = `.js-food-trigger`;
+const GSAP_CHAIN = `.js-chain`;
+const GSAP_CHAIN_TRIGGER = `.js-chain-trigger`;
 
 const TABS = `.js-tabs`;
 const TABS_BUTTON = `[role='tab']`;
 const TABS_CONTENT = `[role='tabpanel']`;
 const TABS_BUTTON_ACTIVE_CLASS = `tabs__button--active`;
 const TABS_CONTENT_ACTIVE_CLASS = `tabs__content--active`;
+
+const COUNT = `.js-count`;
+const COUNT_FIELD = `.js-count-field`;
+const COUNT_MINUS = `js-count-minus`;
+const COUNT_PLUS = `js-count-plus`;
 
 const Test = {
   REQUIRED: `required`,
@@ -318,6 +323,7 @@ document.addEventListener(`DOMContentLoaded`, function() {
   const isValidAnchor = (target) => (target !== `#` && target !== ``);
 
   const scrollToTarget = (selector) => {
+    console.log(selector);
     const target = selector.getAttribute(`href`).trim();
     let position = 0;
 
@@ -671,27 +677,27 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* gsap */
 
-  if (document.querySelector(`body`).classList.contains(`home`)) {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+  if (document.querySelector(`body`).classList.contains(`home`)) {
     if (!ScrollTrigger.isTouch) {
       ScrollSmoother.create({
         wrapper: GSAP_WRAPPER,
         content: GSAP_CONTENT,
-        smooth: 1.1,
+        smooth: 1,
         effects: true,
       });
     }
-
-    gsap.fromTo(GSAP_FOOD, {x: 0}, {
-      x: -2000,
-      scrollTrigger: {
-        trigger: GSAP_FOOD_TRIGGER,
-        scrub: true,
-        end: `2500`,
-      },
-    });
   }
+
+  gsap.fromTo(GSAP_CHAIN, {x: 0}, {
+    x: -1500,
+    scrollTrigger: {
+      trigger: GSAP_CHAIN_TRIGGER,
+      scrub: true,
+      start: `top bottom`,
+    },
+  });
 
   /* gsap */
 
@@ -790,6 +796,70 @@ document.addEventListener(`DOMContentLoaded`, function() {
     });
   }
 
-
   /* tabs */
+
+  /* product count */
+
+  const countFields = Array.from(document.querySelectorAll(COUNT));
+
+  const changeCount = (target) => {
+    const field = target.parentNode.querySelector(COUNT_FIELD);
+    let value = field.value;
+
+    if (target.classList.contains(COUNT_MINUS)) {
+      value = (value > 1) ? value-1 : value;
+    }
+
+    if (target.classList.contains(COUNT_PLUS)) {
+      value++;
+    }
+
+    field.value = value;
+  };
+
+  const handleCountButtonClick = (evt) => {
+    evt.preventDefault();
+
+    changeCount(evt.target);
+  };
+
+  if (countFields.length) {
+    countFields.map((countField) => {
+      countField.addEventListener(`click`, handleCountButtonClick);
+    });
+  }
+
+  /* product count */
+
+  /* cart style */
+
+  const CART_ICON = `.js-cart`;
+  const CART_FULL_CLASS = `button-cart--not-empty`;
+  const ADD_IN_CART_BUTTON = `.js-add-in-cart`;
+
+  const addButtons = Array.from(document.querySelectorAll(ADD_IN_CART_BUTTON));
+
+  const toggleCartClass = () => {
+    const cartIcons = document.querySelectorAll(CART_ICON);
+
+    cartIcons.forEach((cartIcon) => {
+      cartIcon.classList.add(CART_FULL_CLASS);
+    });
+  };
+
+  const handleAddButtonClick = (evt) => {
+    evt.preventDefault();
+
+    toggleCartClass();
+  };
+
+  if (addButtons.length) {
+    addButtons.map((addButton) => {
+      addButton.addEventListener(`click`, handleAddButtonClick);
+    });
+  }
+
+  // const cartIcons =
+
+  /* cart style */
 });

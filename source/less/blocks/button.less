@@ -137,6 +137,7 @@
   &--green,
   &--green-gold {
     color: @green;
+    border-radius: 5px;
 
     .button__overlay {
       .transition();
@@ -168,6 +169,7 @@
 
     &:hover,
     &:focus {
+      color: @green;
       background-color: @gold-dark;
 
       .button__overlay {
@@ -274,6 +276,10 @@
       animation-delay: 0.2s;
     }
   }
+}
+
+.button__overlay {
+  pointer-events: none;
 }
 
 @media (max-width: @break-point-2) {

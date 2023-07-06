@@ -1,0 +1,67 @@
+.more {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  &:hover,
+  &:focus {
+    .more__icon {
+      svg {
+        fill: @gold-dark;
+      }
+
+      &::after {
+        border-color: @gold-dark;
+      }
+    }
+  }
+
+  &:active {
+    color: @green;
+
+    .more__icon {
+      svg {
+        fill: @green;
+      }
+
+      &::after {
+        border-color: @green;
+      }
+    }
+  }
+}
+
+.more__icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  svg {
+    .transition(svg);
+
+    position: relative;
+    z-index: 10;
+    margin-right: 2px;
+    fill: @green;
+  }
+
+  &::after {
+    .transition();
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 90%;
+    height: 100%;
+
+    border: 1px solid @green;
+    border-radius: 50%;
+    transform: rotate(30deg);
+
+    content: '';
+  }
+}

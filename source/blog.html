@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -27,6 +28,7 @@
   <script src="js/gsap.min.js" defer></script>
   <script src="js/ScrollSmoother.min.js" defer></script>
   <script src="js/ScrollTrigger.min.js" defer></script>
+  <script src="js/flatpickr.min.js" defer></script>
   <script src="js/scripts.min.js" defer></script>
 
   <title>Русское подворье. Ресторан русской кухни</title>
@@ -136,7 +138,7 @@
       </div>
 
       <div class="main-menu__cart">
-        <a href="" class="button-cart  button-cart--not-empty  button-cart--green  button-cart--right">
+        <a href="" class="button-cart  button-cart--green  button-cart--right  js-cart">
           <span class="">Корзина</span>
 
           <svg width="36px" height="33px" focusable="false" aria-hidden="true">
@@ -159,7 +161,7 @@
         <a href="" class="header__logo  img-link"><img src="./img/logo_rp_green.svg" alt="Русское подворье" width="145" height="100"></a>
 
         <div class="header__controls">
-          <a href="" class="button-cart  header__cart-button  button-cart--not-empty  button-cart--green">
+          <a href="" class="button-cart  header__cart-button  button-cart--green  js-cart">
             <svg width="36px" height="33px" focusable="false" aria-hidden="true">
               <use xlink:href="#icon_cart"></use>
             </svg>
@@ -176,109 +178,225 @@
       </header>
 
       <section class="box  page-header">
-        <h1 class="title  title--medium  title--center">Меню</h1>
+        <h1 class="visually-hidden">Наш блог</h1>
 
-        <article class="promo  page-header__promo  promo--center">
-          <ul class="promo__list  promo__list--green">
-            <li>Весь апрель скидка 10% на доставку!</li>
-
-            <li>Cкидка 20% по будням с 12:00 до 16:00 на все меню!</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="page-content  prices">
-        <article class="tabs  tabs--menu">
-          <h2 class="visually-hidden">Посмотрите наше меню</h2>
-
-          <div class="box  tabs__controls  bordered-links  box--border-green" role="tablist" aria-label="Выбор варианта меню">
-            <div class="box__decor  box__decor--top  box__decor--green"></div>
-
-            <div class="tabs__controls-wrapper  bordered-links__wrapper">
-              <a href="" class="tabs__button  bordered-links__button">
-                Основное меню
-              </a>
-
-              <a href="" class="tabs__button  bordered-links__button">
-                Барная карта
-              </a>
-
-              <a href="" class="tabs__button  bordered-links__button">
-                Винная карта
-              </a>
-
-              <a href="" class="tabs__button  bordered-links__button">
-                Блюда для компании
-              </a>
-
-              <a href="" class="tabs__button  bordered-links__button">
-                Торты для компании
-              </a>
+        <article class="event-small  columns-wrapper">
+          <div class="column  event-small__left  column--1-2">
+            <div class="rounded-media  event-small__image">
+              <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="600" height="500">
             </div>
-
-            <div class="box__decor  box__decor--bottom  box__decor--green"></div>
           </div>
 
-          <div class="box  tabs__wrapper">
-            <div class="tabs__content" id="menu_1" role="tabpanel" tabindex="0" aria-labelledby="menu_tab_button_1">
-              <div class="wrapper  tabs__buttons-wrapper  wrapper--center">
-                <a href="" class="button  button--gold-white">Доставка</a>
+          <div class="column  event-small__right  column--1-2  column--vertical">
+            <h2 class="title  event-small__title  title--small">Мероприятие для детей</h2>
 
-                <a href="" class="button  button--green">
-                  Скачать меню
+            <p class="event-small__text">Бесплатное мероприятие для детей «Маленький театр</p>
 
-                  <span class="button__overlay"></span>
+            <div class="event-small__props">
+              <p class="prop  prop--green">
+                <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_calendar"></use>
+                </svg>
+
+                <span>C 15 июня | Среда</span>
+              </p>
+
+              <p class="prop  prop--green">
+                <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_clock"></use>
+                </svg>
+
+                <span>18:00</span>
+              </p>
+
+              <p class="prop  prop--green">
+                <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_location"></use>
+                </svg>
+
+                <span>Москва, Симферопольский Бульвар,дом 16, корпус 1</span>
+              </p>
+            </div>
+
+            <a href="" class="button  event-small__button  button--gold-white">Забронировать</a>
+          </div>
+        </article>
+
+      </section>
+
+      <section class="page-content  blog">
+        <h2 class="visually-hidden">Записи в блоге</h2>
+
+        <div class="box  blog__controls  bordered-links  box--border-green" aria-label="Выбор варианта меню">
+          <div class="box__decor  box__decor--top  box__decor--green"></div>
+
+          <div class="bordered-links__wrapper">
+            <a href="" class="bordered-links__button">
+              Новости
+            </a>
+
+            <a href="" class="bordered-links__button">
+              Рецепты
+            </a>
+          </div>
+
+          <div class="box__decor  box__decor--bottom  box__decor--green"></div>
+        </div>
+
+        <div class="box  blog__list  columns-wrapper  box--padding-all">
+          <article class="blog-small  blog__item  column  column--1-4  column--vertical">
+            <div class="rounded-media  blog-small__image">
+              <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="400" height="300"></a>
+            </div>
+
+            <div class="blog-small__content">
+              <h3 class="title  blog-small__title  title--tine">
+                <a href="">Уютный просмотр фильма или шумная вечеринка?</a>
+              </h3>
+
+              <p class="blog-small__excerpt">
+                Мы предоставляем вам возможность воплотить ваши задумки в жизнь
+              </p>
+
+              <div class="blog-small__meta">
+                <time datetime="2023-06-23">2023/06/23</time>
+
+                <a href="" class="more">
+                  <span class="more__text">Подробнее</span>
+
+                  <span class="more__icon">
+                    <svg width="25px" height="21px" focusable="false" aria-hidden="true">
+                      <use xlink:href="#icon_arrow_short"></use>
+                    </svg>
+                  </span>
                 </a>
               </div>
+            </div>
+          </article>
 
-              <div class="frame  prices__frame  tabs__frame  frame--green">
-                <div class="frame__decor  prices__decor  frame__decor--top"></div>
+          <article class="blog-small  blog__item  column  column--1-4  column--vertical">
+            <div class="rounded-media  blog-small__image">
+              <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="400" height="300"></a>
+            </div>
 
-                <div class="frame__border  prices__border">
-                  <div class="frame__content  prices__content">
-                    <div class="slider  js-slider-menu">
-                      <div class="slider__navigation  prices__slider-navigation  js-slider-navigation">
-                        <button class="circle-button  slider__simple-button  slider__simple-button--reverse  circle-button--green  circle-button--no-border  js-slider-prev">
-                          <svg width="36px" height="21px" focusable="false" aria-hidden="true">
-                            <use xlink:href="#icon_arrow"></use>
-                          </svg>
+            <div class="blog-small__content">
+              <h3 class="title  blog-small__title  title--tine">
+                <a href="">Уютный просмотр фильма или шумная вечеринка?</a>
+              </h3>
 
-                          <span class="visually-hidden">Назад</span>
-                        </button>
+              <p class="blog-small__excerpt">
+                Мы предоставляем вам возможность воплотить ваши задумки в жизнь
+              </p>
 
-                        <button class="circle-button  slider__simple-button  circle-button--green  js-slider-next">
-                          <svg width="36px" height="21px" focusable="false" aria-hidden="true">
-                            <use xlink:href="#icon_arrow"></use>
-                          </svg>
+              <div class="blog-small__meta">
+                <time datetime="2023-06-23">2023/06/23</time>
 
-                          <span class="visually-hidden">Вперед</span>
-                        </button>
-                      </div>
+                <a href="" class="more">
+                  <span class="more__text">Подробнее</span>
 
-                      <div class="slider__wrapper  js-slider">
-                        <div class="prices__slide">
-                          <img src="./img/menu.jpg" alt="Меню" width="800" height="1200">
-                          <img src="./img/menu.jpg" alt="Меню" width="800" height="1200">
-                        </div>
-
-                        <div class="prices__slide">
-                          <img src="./img/menu.jpg" alt="Меню" width="800" height="1200">
-                          <img src="./img/menu.jpg" alt="Меню" width="800" height="1200">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="frame__decor  prices__decor  frame__decor--bottom"></div>
+                  <span class="more__icon">
+                    <svg width="25px" height="21px" focusable="false" aria-hidden="true">
+                      <use xlink:href="#icon_arrow_short"></use>
+                    </svg>
+                  </span>
+                </a>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="blog-small  blog__item  column  column--1-4  column--vertical">
+            <div class="rounded-media  blog-small__image">
+              <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="400" height="300"></a>
+            </div>
+
+            <div class="blog-small__content">
+              <h3 class="title  blog-small__title  title--tine">
+                <a href="">Уютный просмотр фильма или шумная вечеринка?</a>
+              </h3>
+
+              <p class="blog-small__excerpt">
+                Мы предоставляем вам возможность воплотить ваши задумки в жизнь
+              </p>
+
+              <div class="blog-small__meta">
+                <time datetime="2023-06-23">2023/06/23</time>
+
+                <a href="" class="more">
+                  <span class="more__text">Подробнее</span>
+
+                  <span class="more__icon">
+                    <svg width="25px" height="21px" focusable="false" aria-hidden="true">
+                      <use xlink:href="#icon_arrow_short"></use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-small  blog__item  column  column--1-4  column--vertical">
+            <div class="rounded-media  blog-small__image">
+              <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="400" height="300"></a>
+            </div>
+
+            <div class="blog-small__content">
+              <h3 class="title  blog-small__title  title--tine">
+                <a href="">Уютный просмотр фильма или шумная вечеринка?</a>
+              </h3>
+
+              <p class="blog-small__excerpt">
+                Мы предоставляем вам возможность воплотить ваши задумки в жизнь
+              </p>
+
+              <div class="blog-small__meta">
+                <time datetime="2023-06-23">2023/06/23</time>
+
+                <a href="" class="more">
+                  <span class="more__text">Подробнее</span>
+
+                  <span class="more__icon">
+                    <svg width="25px" height="21px" focusable="false" aria-hidden="true">
+                      <use xlink:href="#icon_arrow_short"></use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
+      <section class="pagination  page-content__pagination  box">
+        <div class="pagination__wrapper">
+          <a href="page-numbers  next">
+            <button class="pagination__button  pagination__button--reverse" focusable="false">
+              <svg width="36px" height="21px" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon_arrow"></use>
+              </svg>
 
-      <footer class="footer  footer--green">
+              <span class="pagination__nav-text">Назад</span>
+            </button>
+          </a>
+
+          <span class="page-numbers  current">1</span>
+
+          <a href="" class="page-numbers">2</a>
+
+          <a href="" class="page-numbers">3</a>
+
+          <a href="page-numbers  prev">
+            <button class="pagination__button" focusable="false">
+              <span class="pagination__nav-text">Вперед</span>
+
+              <svg width="36px" height="21px" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon_arrow"></use>
+              </svg>
+            </button>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer  footer--green  footer--margin-top">
         <div class="box  footer__empty-box">
           <div class="box__decor  footer__decor-1  box__decor--top  box__decor--green"></div>
           <div class="footer__decor-2"></div>
@@ -289,7 +407,7 @@
 
           <div class="columns-wrapper  footer__columns">
             <div class="column  footer__left  column--2-5  column--vertical">
-              <a class="footer__logo">
+              <a href="" class="footer__logo">
                 <img src="./img/logo_rp_green.svg" alt="Русское Подворье" width="169" height="178">
               </a>
 

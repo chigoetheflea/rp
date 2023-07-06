@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preload" href="fonts/prata.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font">
+  <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+  <meta property="og:description" content="Русское подворье. Ресторан русской кухни">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Русское подворье. Ресторан русской кухни">
+  <meta name="twitter:description" content="Русское подворье. Ресторан русской кухни">
+  <meta name="twitter:image:src" content="img/og.jpg">
+  <meta name="description" content="Русское подворье. Ресторан русской кухни">
+  <meta name="keywords" content="Русское подворье. Ресторан русской кухни">
+
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
+  <script src="js/peppermint.min.js" defer></script>
+  <script src="js/inputmask.min.js" defer></script>
+  <script src="js/gsap.min.js" defer></script>
+  <script src="js/ScrollSmoother.min.js" defer></script>
+  <script src="js/ScrollTrigger.min.js" defer></script>
+  <script src="js/flatpickr.min.js" defer></script>
+  <script src="js/scripts.min.js" defer></script>
+
+  <title>Русское подворье. Ресторан русской кухни</title>
+</head>
+
+<body class="no-js">
+  <div style="display:none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
+  <div class="loading  js-loading"><span class="loading__logo"></span></div>
+
+  <div class="main-menu  js-menu  main-menu--closed">
+    <div class="box  main-menu__wrapper  box--padding-all">
+      <div class="main-menu__logo">
+        <img src="./img/logo_rp_green.svg" alt="Русское Подворье" width="145" height="100">
+      </div>
+
+
+      <div class="main-menu__close-wrapper">
+        <button class="modal-close  main-menu__close  js-menu-close">
+          <svg width="20px" height="20px" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon_close"></use>
+          </svg>
+
+          <span class="visually-hidden">Закрыть</span>
+        </button>
+      </div>
+
+      <nav class="main-menu__content">
+        <div class="main-menu__content-wrapper">
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">Меню</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">Основное меню</a></li>
+              <li><a href="">Блюда для компании</a></li>
+              <li><a href="">Десерты</a></li>
+              <li><a href="">Барная карта</a></li>
+              <li><a href="">Винная карта</a></li>
+            </ul>
+          </div>
+
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">Банкеты</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">Новогодние корпоративы</a></li>
+              <li><a href="">Свадьбы</a></li>
+              <li><a href="">Дни рождения</a></li>
+              <li><a href="">Юбилеи</a></li>
+              <li><a href="">Свидания</a></li>
+              <li><a href="">Поминки</a></li>
+              <li><a href="">Крестины</a></li>
+              <li><a href="">Корпоративы</a></li>
+              <li><a href="">Детские праздники</a></li>
+            </ul>
+          </div>
+
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">Залы</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">Торжественный</a></li>
+              <li><a href="">Особый</a></li>
+              <li><a href="">Каминный</a></li>
+              <li><a href="">Музыкальный</a></li>
+              <li><a href="">Новый</a></li>
+              <li><a href="">Кабинет</a></li>
+              <li><a href="">Веранда</a></li>
+            </ul>
+          </div>
+
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">О нас</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">О ресторане</a></li>
+              <li><a href="">Мероприятия</a></li>
+              <li><a href="">Новости</a></li>
+              <li><a href="">Рецепты от шефа</a></li>
+              <li><a href="">Отзывы</a></li>
+              <li><a href="">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="main-menu__links">
+          <a href="" class="button  button--green">
+            Доставка
+
+            <span class="button__overlay"></span>
+          </a>
+
+          <a href="" class="button  button--green">
+            Бронирование
+
+            <span class="button__overlay"></span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="main-menu__contacts">
+        <a href="tel:+74954451069">+7 495 445-10-69</a>
+
+        <address>Москва, Симферопольский б-р, д. 16, к. 1</address>
+      </div>
+
+      <div class="main-menu__cart">
+        <a href="" class="button-cart  button-cart--not-empty  button-cart--green  button-cart--right">
+          <span class="">Корзина</span>
+
+          <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon_cart"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="js-gsap-wrapper">
+    <div class="js-gsap-content">
+      <header class="box  header  header--inner">
+        <div class="header__contacts">
+          <a href="tel:+74954451069" class="header__phone">+7 495 445-10-69</a>
+
+          <address class="header__address">Москва, <span>Симферопольский б-р,</span> <span>д. 16, к. 1</span></address>
+        </div>
+
+        <a href="" class="header__logo  img-link"><img src="./img/logo_rp_green.svg" alt="Русское подворье" width="145" height="100"></a>
+
+        <div class="header__controls">
+          <a href="" class="button-cart  header__cart-button  button-cart--not-empty  button-cart--green">
+            <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+              <use xlink:href="#icon_cart"></use>
+            </svg>
+
+            <span class="visually-hidden">Смотреть корзину</span>
+          </a>
+
+          <button class="menu-button  header __menu-button  menu-button--green  js-menu-button">
+            <span class="menu-button__burger"></span>
+
+            <span class="menu-button__name">Меню</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="page-content  single-event">
+        <article class="hall  box  columns-wrapper  single-event__hero  box--padding-all  hall--reverse  hall--inner  hall--title">
+          <div class="column  hall__info  column--3-5  column--vertical  column--center">
+            <h1 class="title  hall__title  title--medium">Подготовим новогодний корпоратив за 1 час</h1>
+
+            <p class="hall__text  hall__text--margin-top">
+              Огромный опыт в организации торжественных мероприятий, воплотим любые ваши идеи в жизнь
+            </p>
+
+            <div class="bonus  single-event__bonus">
+              <p>При бронирование корпоративного мероприятия до 20 ноября, получи от ресторана в подарок «Welcome drink»</p>
+
+              <a href="#reservation" class="button  bonus__button  button--green-gold  js-scroll">
+                Забронировать
+
+                <span class="button__overlay"></span>
+              </a>
+            </div>
+
+            <div class="single-event__props  columns-wrapper">
+              <div class="column  single-event__props-column  column--1-2  column--vertical">
+                <div class="prop  prop--green  prop--detailed">
+                  <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                    <use xlink:href="#icon_people"></use>
+                  </svg>
+
+                  <div class="prop__info">
+                    <p class="prop__title">Новогодний корпоратив от 4 000 Р</p>
+
+                    <p class="prop__text">В стоимость входят разнообразные меню и напитки</p>
+                  </div>
+                </div>
+
+                <div class="prop  prop--green  prop--detailed">
+                  <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                    <use xlink:href="#icon_people"></use>
+                  </svg>
+
+                  <div class="prop__info">
+                    <p class="prop__title">Новогодний корпоратив от 4 000 Р</p>
+
+                    <p class="prop__text">В стоимость входят разнообразные меню и напитки</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column  single-event__props-column  column--1-2  column--vertical">
+                <div class="prop  prop--green  prop--detailed">
+                  <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                    <use xlink:href="#icon_people"></use>
+                  </svg>
+
+                  <div class="prop__info">
+                    <p class="prop__title">Новогодний корпоратив от 4 000 Р</p>
+
+                    <p class="prop__text">В стоимость входят разнообразные меню и напитки</p>
+                  </div>
+                </div>
+
+                <div class="prop  prop--green  prop--detailed">
+                  <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                    <use xlink:href="#icon_people"></use>
+                  </svg>
+
+                  <div class="prop__info">
+                    <p class="prop__title">Новогодний корпоратив от 4 000 Р</p>
+
+                    <p class="prop__text">В стоимость входят разнообразные меню и напитки</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column  hall__image-wrapper  column--2-5">
+            <div class="circle-media  hall__image  hall__image--big">
+              <div class="circle-media__container">
+                <div class="circle-media__wrapper">
+                  <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <section class="box  info-block  single-event__why  box--frame-flower  box--flower-green">
+          <div class="box__decor  box__decor--top  box__decor--green"></div>
+
+          <div class="box__wrapper  box__wrapper--green">
+            <div class="columns-wrapper">
+              <div class="column  info-block__left  column--1-2">
+                <div class="rounded-media  info-block__image">
+                  <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="600" height="500">
+                </div>
+              </div>
+
+              <div class="column  info-block__right  column--1-2  column--vertical">
+                <h2 class="title  title--small">Почему наш ресторан лучший выбор?</h2>
+
+                <div class="info-block__text-wrapper">
+                  <p>Наш ресторан располагает всеми средствами для того, чтобы сделать Ваш Новый Год ярким и незабываемым.</p>
+                  <p>Великолепная кухня, изолированные залы с уютным интерьером и серьезным техническим оснащением, опытный персонал.</p>
+                  <p>С каждым клиентом работает персональный банкетный менеджер, который поможет вам с рассадкой гостей, банкетным меню и музыкальным сопровождением.</p>
+                </div>
+
+                <a href="" class="button  info-block__button  button--gold-white">Скачать меню</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="box__decor  box__decor--bottom  box__decor--green"></div>
+        </section>
+
+        <section class="single-event__gallery  js-chain-trigger">
+          <div class="box  box--padding-all">
+            <h2 class="title  title--tine  title--center">Новогоднее убранство Русского Подворья</h2>
+          </div>
+
+          <div class="image-chain  seasons__food">
+            <div class="image-chain__wrapper  js-chain">
+              <div class="circle-media  image-chain__image  image-chain__image--circle">
+                <div class="circle-media__container">
+                  <div class="circle-media__wrapper">
+                    <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="circle-media  image-chain__image  image-chain__image--circle">
+                <div class="circle-media__container">
+                  <div class="circle-media__wrapper">
+                    <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="circle-media  image-chain__image  image-chain__image--circle">
+                <div class="circle-media__container">
+                  <div class="circle-media__wrapper">
+                    <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="circle-media  image-chain__image  image-chain__image--circle">
+                <div class="circle-media__container">
+                  <div class="circle-media__wrapper">
+                    <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+
+              <div class="rounded-media  image-chain__image">
+                <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="box  halls  single-event__halls  box--padding-all  box--border-green">
+          <div class="slider  halls__slider  js-slider-halls">
+            <h2 class="title  halls__title  title--strong">Залы Русского подворья</h2>
+
+            <div class="slider__wrapper  js-slider">
+              <article class="hall  slider__item  columns-wrapper">
+                <div class="column  hall__image-wrapper  column--2-5">
+                  <div class="circle-media  hall__image  circle-media--reverse  js-slider-img"  data-rotate="-30">
+                    <div class="circle-media__container">
+                      <div class="circle-media__wrapper">
+                        <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column  hall__info  column--3-5  column--vertical  column--center">
+                  <h3 class="title  hall__title  title--small  js-slide-title">Торжественный зал</h3>
+
+                  <p class="hall__text">
+                    Просторный зал, в котором можно проводить свадьбы, юбилеи, корпоративы или крестины. Площадь позволяет разместить сцену, танцплощадку и детский уголок. Светлый зал с торжественной обстановкой.
+                  </p>
+
+                  <div class="hall__props">
+                    <p class="prop  prop--green">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_people"></use>
+                      </svg>
+
+                      <span>До 50 гостей</span>
+                    </p>
+
+                    <p class="prop  prop--green">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_square"></use>
+                      </svg>
+
+                      <span>50 м<sup>2</sup></span>
+                    </p>
+
+                    <p class="prop  prop--green">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_scene"></use>
+                      </svg>
+
+                      <span>Мобильная сцена</span>
+                    </p>
+
+                    <p class="prop  prop--green">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_sound"></use>
+                      </svg>
+
+                      <span>Звук и свет</span>
+                    </p>
+                  </div>
+
+                  <div class="hall__controls">
+                    <a href="" class="button  hall__button  button--gold-white">Забронировать</a>
+
+                    <a href="">Подробнее</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="hall  slider__item  columns-wrapper">
+                <div class="column  hall__image-wrapper  column--2-5">
+                  <div class="circle-media  hall__image  js-slider-img"  data-rotate="30">
+                    <div class="circle-media__container">
+                      <div class="circle-media__wrapper">
+                        <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column  hall__info  column--3-5  column--vertical  column--center">
+                  <h3 class="title  hall__title  title--small  js-slide-title">Особый зал</h3>
+
+                  <p class="hall__text">
+                    Просторный зал, в котором можно проводить свадьбы, юбилеи, корпоративы или крестины. Площадь позволяет разместить сцену, танцплощадку и детский уголок. Светлый зал с торжественной обстановкой.
+                  </p>
+
+                  <div class="hall__props">
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_people"></use>
+                      </svg>
+
+                      <span>До 50 гостей</span>
+                    </p>
+
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_square"></use>
+                      </svg>
+
+                      <span>50 м<sup>2</sup></span>
+                    </p>
+
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_scene"></use>
+                      </svg>
+
+                      <span>Мобильная сцена</span>
+                    </p>
+
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_sound"></use>
+                      </svg>
+
+                      <span>Звук и свет</span>
+                    </p>
+                  </div>
+
+                  <div class="hall__controls">
+                    <a href="" class="button  hall__button  button--gold">Забронировать</a>
+
+                    <a href="">Подробнее</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="hall  slider__item  columns-wrapper">
+                <div class="column  hall__image-wrapper  column--2-5">
+                  <div class="circle-media  hall__image  circle-media--reverse  js-slider-img"  data-rotate="-30">
+                    <div class="circle-media__container">
+                      <div class="circle-media__wrapper">
+                        <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column  hall__info  column--3-5  column--vertical  column--center">
+                  <h3 class="title  hall__title  title--small  js-slide-title">Каминный зал</h3>
+
+                  <p class="hall__text">
+                    Просторный зал, в котором можно проводить свадьбы, юбилеи, корпоративы или крестины. Площадь позволяет разместить сцену, танцплощадку и детский уголок. Светлый зал с торжественной обстановкой.
+                  </p>
+
+                  <div class="hall__props">
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_people"></use>
+                      </svg>
+
+                      <span>До 50 гостей</span>
+                    </p>
+
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_square"></use>
+                      </svg>
+
+                      <span>50 м<sup>2</sup></span>
+                    </p>
+
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_scene"></use>
+                      </svg>
+
+                      <span>Мобильная сцена</span>
+                    </p>
+
+                    <p class="prop">
+                      <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                        <use xlink:href="#icon_sound"></use>
+                      </svg>
+
+                      <span>Звук и свет</span>
+                    </p>
+                  </div>
+
+                  <div class="hall__controls">
+                    <a href="" class="button  hall__button  button--gold">Забронировать</a>
+
+                    <a href="">Подробнее</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="slider__navigation  halls__navigation  slider__navigation--green  js-slider-navigation">
+              <button class="slider__text-button  slider__text-button--reverse  js-slider-prev">
+                <svg width="36px" height="21px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_arrow"></use>
+                </svg>
+
+                <span class="slider__navigation-text  js-slider-nav-text-prev">Новый зал</span>
+              </button>
+
+              <p class="slider__navigation-separator">/</p>
+
+              <button class="slider__text-button  js-slider-next">
+                <span class="slider__navigation-text  js-slider-nav-text-next">Веранда</span>
+
+                <svg width="36px" height="21px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_arrow"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tabs  js-tabs"  data-start="menu_3">
+          <h2 class="visually-hidden">Посмотрите наше меню</h2>
+
+          <div class="box  tabs__controls  bordered-links  box--border-green  bordered-links--gold" role="tablist" aria-label="Выбор варианта меню">
+            <div class="box__decor  box__decor--top  box__decor--green"></div>
+
+            <div class="tabs__controls-wrapper  bordered-links__wrapper  js-tabs-controls">
+              <button
+                class="tabs__button  bordered-links__button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="menu_1"
+                id="menu_tab_button_1"
+                tabindex="0">
+                Меню за 4 000 руб.
+              </button>
+
+              <button
+                class="tabs__button  bordered-links__button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="menu_2"
+                id="menu_tab_button_2"
+                tabindex="0">
+                Меню за 7 000 руб.
+              </button>
+
+              <button
+                class="tabs__button  bordered-links__button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="menu_3"
+                id="menu_tab_button_3"
+                tabindex="0">
+                Услуги
+              </button>
+            </div>
+
+            <div class="box__decor  box__decor--bottom  box__decor--green"></div>
+          </div>
+
+          <div class="box  tabs__wrapper  js-tabs-content">
+            <section class="products  tabs__content" id="menu_1" role="tabpanel" tabindex="0" aria-labelledby="menu_tab_button_1">
+              <h2 class="title  products__title-big  title--center  title--medium">Меню за 4000 руб.</h2>
+
+              <div class="products__wrapper">
+                <h3 class="title  products__title-category  title--center  title--small">Салаты в стол</h3>
+
+                <div class="columns-wrapper">
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="products__wrapper">
+                <h3 class="title  products__title-category  title--center  title--small">Салаты в стол</h3>
+
+                <div class="columns-wrapper">
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+                </div>
+              </div><div class="products__wrapper">
+                <h3 class="title  products__title-category  title--center  title--small">Салаты в стол</h3>
+
+                <div class="columns-wrapper">
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+
+                  <article class="product-small  products__item  column  column--1-4">
+                    <div class="rounded-media  product-small__image">
+                      <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+                    </div>
+
+                    <div class="product-small__info">
+                      <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                      <p class="product-small__weight">150 г.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="tabs__content" id="menu_2" role="tabpanel" tabindex="0" aria-labelledby="menu_tab_button_2">
+              2
+            </section>
+
+            <section class="servises  tabs__content" id="menu_3" role="tabpanel" tabindex="0" aria-labelledby="menu_tab_button_3">
+              <h2 class="title  servises__title-big  title--center  title--medium">Услуги</h2>
+
+              <div class="services__wrapper">
+                <article class="services__item   columns-wrapper">
+                  <div class="column  services__left  column--1-3col2">
+                    <div class="circle-media  services__image  circle-media--reverse">
+                      <div class="circle-media__container">
+                        <div class="circle-media__wrapper">
+                          <img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="column  services__right  column--2-3col2  column--vertical">
+                    <h3 class="title  services__title  title--small">Ведущий</h3>
+
+                    <p class="services__text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt excepturi vero inventore soluta accusamus! Expedita repellendus odit, perferendis possimus deserunt consectetur a veritatis facere, sit recusandae saepe, impedit tempora quos!
+                    </p>
+
+                    <p class="services__price">7 000 руб.</p>
+                  </div>
+                </article>
+              </div>
+
+            </section>
+          </div>
+        </section>
+
+        <section class="reservation" id="reservation">
+          <div class="box  box--padding-all">
+            <h2 class="title  reservation__title  title--medium  title--center">Забронировать зал</h2>
+
+            <p class="reservation__subtitle">Укажите желаемую дату и контакты для связи с Вами</p>
+
+            <form action="" class="form  reservation__form  js-form" id="form-reservation">
+              <div class="form__result  js-result">Отправлено!</div>
+
+              <div class="form__row  form__row--3-cols">
+                <div class="form__input-wrapper">
+                  <label for="reservation_name_field">Имя и фамилия</label>
+
+                  <input
+                    type="text"
+                    class="form__input"
+                    name="reservation_name"
+                    id="reservation_name_field"
+                    placeholder="Имя и фамилия"
+                    data-validate="true"
+                    data-required="true">
+                </div>
+
+                <div class="form__input-wrapper">
+                  <label for="reservation_phone_field">Телефон</label>
+
+                  <input
+                    type="tel"
+                    class="form__input  js-masked-input"
+                    name="reservation_phone"
+                    id="reservation_phone_field"
+                    placeholder="+7 (___) ___-__-__"
+                    data-validate="true"
+                    data-required="true"
+                    data-mask="phone">
+                </div>
+
+                <div class="form__input-wrapper">
+                  <label for="reservation_email_field">Email</label>
+
+                  <input
+                    type="email"
+                    class="form__input"
+                    name="reservation_email"
+                    id="reservation_email_field"
+                    placeholder="Email"
+                    data-validate="true"
+                    data-required="true"
+                    data-mask="email"
+                    >
+                </div>
+              </div>
+
+              <div class="form__row  form__row--2-cols">
+                <div class="form__input-wrapper">
+                  <label for="reservation_hall_field">Желаемый зал</label>
+
+                  <div class="like-select  form__like-select  js-select">
+                    <button class="button  like-select__button  button--regular  js-select-button" data-default="Любой">
+                      <span>Любой</span>
+
+                      <svg width="25px" height="21px" aria-hidden="true" focusable="false">
+                        <use xlink:href="#icon_arrow_short"></use>
+                      </svg>
+                    </button>
+
+                    <ul class="like-select__list  js-select-list">
+                      <li><a href="" class="like-select__current">Любой</a></li>
+                      <li><a href="">Торжественный</a></li>
+                    </ul>
+
+                    <input type="text" class="form__input  visually-hidden  js-select-input" name="reservation_hall" id="reservation_hall_field" value="Любой">
+                  </div>
+                </div>
+
+                <div class="form__input-wrapper">
+                  <label for="reservation_date_field">Дата</label>
+
+                  <input type="text" class="form__input  js-date-picker" name="reservation_date" id="reservation_date_field" placeholder="Дата">
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="form__input-wrapper">
+                  <label for="reservation_more_field">Комментарий</label>
+
+                  <textarea name="reservation_more" id="reservation_more_field" class="form__input" placeholder="Комментарий"></textarea>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <p class="form__notice">Нажимая кнопку «Отправить» Вы даете свое <a href="">согласие</a> на обработку Ваших персональных данных</p>
+              </div>
+
+              <div class="form__row  form__row--center">
+                <button class="button  form__submit  button--solid-green  js-submit" type="submit">Забронировать</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer  footer--green  footer--margin-top">
+        <div class="box  footer__empty-box">
+          <div class="box__decor  footer__decor-1  box__decor--top  box__decor--green"></div>
+          <div class="footer__decor-2"></div>
+        </div>
+
+        <div class="box  footer__content">
+          <div class="box__decor  box__decor--top  box__decor--green"></div>
+
+          <div class="columns-wrapper  footer__columns">
+            <div class="column  footer__left  column--2-5  column--vertical">
+              <a href="" class="footer__logo">
+                <img src="./img/logo_rp_green.svg" alt="Русское Подворье" width="169" height="178">
+              </a>
+
+              <div class="footer__contacts">
+                <div class="footer__phones">
+                  <a href="tel:+74952152138">+7 495 215–21–38</a>
+
+                  <a href="tel:+79671504649">+7 967 150–46–49</a>
+                </div>
+
+                <a href="mailto:manager@russkoepodvorie.com">manager@russkoepodvorie.com</a>
+
+                <address class="footer__address">
+                  Москва, Симферопольский Бульвар, д. 16, к. 1
+                  <br>м. Каховская / м. Севастопольская / м. Варшавская
+                  <br>Время работы: 12:00 — 00:00
+                </address>
+
+                <div class="footer__social">
+                  <p>Русское Подворье в соцсетях</p>
+
+                  <a href="">
+                    <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                      <use xlink:href="#icon_vk"></use>
+                    </svg>
+
+                    <span class="visually-hidden">Русское Подворье Вконтакте</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer__payment">
+                <span>Мы принимаем к оплате карты</span>
+
+                <svg width="269px" height="32px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_cards"></use>
+                </svg>
+              </div>
+
+              <div class="footer__copyright">
+                2023 © «Русское подворье»
+              </div>
+            </div>
+
+
+            <div class="column  footer__right  column--3-5  column--vertical">
+              <nav class="footer__menu">
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">Меню</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">Основное меню</a></li>
+                    <li><a href="">Блюда для компании</a></li>
+                    <li><a href="">Десерты</a></li>
+                    <li><a href="">Барная карта</a></li>
+                    <li><a href="">Винная карта</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">Банкеты</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">Новогодние корпоративы</a></li>
+                    <li><a href="">Свадьбы</a></li>
+                    <li><a href="">Дни рождения</a></li>
+                    <li><a href="">Юбилеи</a></li>
+                    <li><a href="">Свидания</a></li>
+                    <li><a href="">Поминки</a></li>
+                    <li><a href="">Крестины</a></li>
+                    <li><a href="">Корпоративы</a></li>
+                    <li><a href="">Детские праздники</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">Залы</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">Торжественный</a></li>
+                    <li><a href="">Особый</a></li>
+                    <li><a href="">Каминный</a></li>
+                    <li><a href="">Музыкальный</a></li>
+                    <li><a href="">Новый</a></li>
+                    <li><a href="">Кабинет</a></li>
+                    <li><a href="">Веранда</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">О нас</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">О ресторане</a></li>
+                    <li><a href="">Мероприятия</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Рецепты от шефа</a></li>
+                    <li><a href="">Отзывы</a></li>
+                    <li><a href="">Контакты</a></li>
+                  </ul>
+                </div>
+              </nav>
+
+              <div class="footer__projects">
+                <p>Наши проекты в Суздале</p>
+
+                <div class="footer__projects-wrapper">
+                  <a href="" class="img-link">
+                    <img src="./img/logo_dobrolubovo_green.png" alt="" width="266" height="189">
+                  </a>
+
+                  <a href="" class="img-link">
+                    <img src="./img/logo_rp_old_green.png" alt="" width="266" height="189">
+                  </a>
+
+                  <a href="" class="img-link">
+                    <img src="./img/logo_ugol_green.png" alt="" width="266" height="189">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <dialog class="modal  js-modal" id="">
+        <div class="modal__content-wrapper">
+          <button class="modal__close  js-modal-close">
+            <span class="visually-hidden">Закрыть окно</span>
+          </button>
+
+          <article class="modal__content">
+
+          </article>
+        </div>
+      </dialog>
+    </div>
+  </div>
+</body>
+</html>

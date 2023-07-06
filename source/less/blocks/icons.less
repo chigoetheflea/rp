@@ -1,0 +1,40 @@
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px 30px;
+}
+
+.icons__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 33.33%;
+
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  &--green {
+    svg {
+      fill: @green;
+    }
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .icons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icons__item {
+    flex-direction: row;
+    gap: 30px;
+    text-align: left;
+  }
+}

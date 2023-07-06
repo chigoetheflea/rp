@@ -1,0 +1,36 @@
+.prop {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0;
+
+  svg {
+    flex-shrink: 0;
+    fill: @gold;
+  }
+
+  &--green {
+    svg {
+      fill: @green;
+    }
+  }
+
+  &--detailed {
+    align-items: flex-start;
+  }
+}
+
+.prop__title {
+  margin: 4px 0 0 0;
+  font-weight: 700;
+}
+
+.prop__text {
+  margin: 10px 0 0 0;
+}
+
+@media (max-width: @break-point-mobile) {
+  .prop {
+    width: 100%;
+  }
+}

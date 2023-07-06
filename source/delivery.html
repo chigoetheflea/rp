@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preload" href="fonts/prata.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font">
+  <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+  <meta property="og:description" content="Русское подворье. Ресторан русской кухни">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Русское подворье. Ресторан русской кухни">
+  <meta name="twitter:description" content="Русское подворье. Ресторан русской кухни">
+  <meta name="twitter:image:src" content="img/og.jpg">
+  <meta name="description" content="Русское подворье. Ресторан русской кухни">
+  <meta name="keywords" content="Русское подворье. Ресторан русской кухни">
+
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
+  <script src="js/peppermint.min.js" defer></script>
+  <script src="js/inputmask.min.js" defer></script>
+  <script src="js/gsap.min.js" defer></script>
+  <script src="js/ScrollSmoother.min.js" defer></script>
+  <script src="js/ScrollTrigger.min.js" defer></script>
+  <script src="js/flatpickr.min.js" defer></script>
+  <script src="js/scripts.min.js" defer></script>
+
+  <title>Русское подворье. Ресторан русской кухни</title>
+</head>
+
+<body class="no-js">
+  <div style="display:none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
+  <div class="loading  js-loading"><span class="loading__logo"></span></div>
+
+  <div class="main-menu  js-menu  main-menu--closed">
+    <div class="box  main-menu__wrapper  box--padding-all">
+      <div class="main-menu__logo">
+        <img src="./img/logo_rp_green.svg" alt="Русское Подворье" width="145" height="100">
+      </div>
+
+
+      <div class="main-menu__close-wrapper">
+        <button class="modal-close  main-menu__close  js-menu-close">
+          <svg width="20px" height="20px" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon_close"></use>
+          </svg>
+
+          <span class="visually-hidden">Закрыть</span>
+        </button>
+      </div>
+
+      <nav class="main-menu__content">
+        <div class="main-menu__content-wrapper">
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">Меню</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">Основное меню</a></li>
+              <li><a href="">Блюда для компании</a></li>
+              <li><a href="">Десерты</a></li>
+              <li><a href="">Барная карта</a></li>
+              <li><a href="">Винная карта</a></li>
+            </ul>
+          </div>
+
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">Банкеты</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">Новогодние корпоративы</a></li>
+              <li><a href="">Свадьбы</a></li>
+              <li><a href="">Дни рождения</a></li>
+              <li><a href="">Юбилеи</a></li>
+              <li><a href="">Свидания</a></li>
+              <li><a href="">Поминки</a></li>
+              <li><a href="">Крестины</a></li>
+              <li><a href="">Корпоративы</a></li>
+              <li><a href="">Детские праздники</a></li>
+            </ul>
+          </div>
+
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">Залы</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">Торжественный</a></li>
+              <li><a href="">Особый</a></li>
+              <li><a href="">Каминный</a></li>
+              <li><a href="">Музыкальный</a></li>
+              <li><a href="">Новый</a></li>
+              <li><a href="">Кабинет</a></li>
+              <li><a href="">Веранда</a></li>
+            </ul>
+          </div>
+
+          <div class="main-menu__menu-column">
+            <p class="text  text--strong">О нас</p>
+
+            <ul class="main-menu__list">
+              <li><a href="">О ресторане</a></li>
+              <li><a href="">Мероприятия</a></li>
+              <li><a href="">Новости</a></li>
+              <li><a href="">Рецепты от шефа</a></li>
+              <li><a href="">Отзывы</a></li>
+              <li><a href="">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="main-menu__links">
+          <a href="" class="button  button--green">
+            Доставка
+
+            <span class="button__overlay"></span>
+          </a>
+
+          <a href="" class="button  button--green">
+            Бронирование
+
+            <span class="button__overlay"></span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="main-menu__contacts">
+        <a href="tel:+74954451069">+7 495 445-10-69</a>
+
+        <address>Москва, Симферопольский б-р, д. 16, к. 1</address>
+      </div>
+
+      <div class="main-menu__cart">
+        <a href="" class="button-cart  button-cart--green  button-cart--right  js-cart">
+          <span class="">Корзина</span>
+
+          <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon_cart"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="js-gsap-wrapper">
+    <div class="js-gsap-content">
+      <header class="box  header  header--inner">
+        <div class="header__contacts">
+          <a href="tel:+74954451069" class="header__phone">+7 495 445-10-69</a>
+
+          <address class="header__address">Москва, <span>Симферопольский б-р,</span> <span>д. 16, к. 1</span></address>
+        </div>
+
+        <a href="" class="header__logo  img-link"><img src="./img/logo_rp_green.svg" alt="Русское подворье" width="145" height="100"></a>
+
+        <div class="header__controls">
+          <a href="" class="button-cart  header__cart-button  button-cart--green  js-cart">
+            <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+              <use xlink:href="#icon_cart"></use>
+            </svg>
+
+            <span class="visually-hidden">Смотреть корзину</span>
+          </a>
+
+          <button class="menu-button  header __menu-button  menu-button--green  js-menu-button">
+            <span class="menu-button__burger"></span>
+
+            <span class="menu-button__name">Меню</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="box  page-header">
+        <div class="columns-wrapper">
+          <div class="column  column--1-2  column--vertical">
+            <h1 class="title  title--medium  title--left">Готовим и доставляем еду для вас</h1>
+
+            <article class="promo  page-header__promo  promo--left">
+              <ul class="promo__list  promo__list--green">
+                <li>Весь апрель скидка 10% на доставку!</li>
+
+                <li>Cкидка 20% по будням с 12:00 до 16:00 на все меню!</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="column  page-header__advantages  column--1-2  column--vertical">
+            <div class="icons">
+              <div class="icons__item  icons__item--car">
+                <svg width="54px" height="50px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_car"></use>
+                </svg>
+
+                <p>Доставка осуществляется<br>с 11:00 до 21:30</p>
+              </div>
+
+              <div class="icons__item  icons__item--green">
+                <svg width="54px" height="50px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_wheat"></use>
+                </svg>
+
+                <p>Фермерские<br>продукты</p>
+              </div>
+
+              <div class="icons__item  icons__item--green">
+                <svg width="54px" height="50px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_rolling"></use>
+                </svg>
+
+                <p>Ручная лепка</p>
+              </div>
+            </div>
+
+            <a href="" class="button  button--green">
+              Условия доставки и оплаты
+
+              <span class="button__overlay"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-content  store">
+        <h2 class="visually-hidden">Наше меню для доставки</h2>
+
+        <div class="box  bordered-links  box--border-green"  aria-label="Категории блюд">
+          <div class="box__decor  box__decor--top  box__decor--green"></div>
+
+          <div class="bordered-links__wrapper  js-scroll">
+            <a href="#q1" class="bordered-links__button">
+              Основное меню
+            </a>
+
+            <a href="#q2" class="bordered-links__button">
+              Барная карта
+            </a>
+
+            <a href="#q3" class="bordered-links__button">
+              Винная карта
+            </a>
+
+            <a href="" class="bordered-links__button">
+              Блюда для компании
+            </a>
+
+            <a href="" class="bordered-links__button">
+              Торты для компании
+            </a>
+          </div>
+
+          <div class="box__decor  box__decor--bottom  box__decor--green"></div>
+        </div>
+
+        <section class="box  products  box--padding-all" id="q1">
+          <h3 class="title  title--small  title--center">Первые блюда</h3>
+
+          <div class="columns-wrapper  products__wrapper">
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="box  products  box--padding-all" id="q2">
+          <h3 class="title  title--small  title--center">Первые блюда</h3>
+
+          <div class="columns-wrapper  products__wrapper">
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+
+            <article class="product-small  products__item  column  column--1-4">
+              <div class="rounded-media  product-small__image">
+                <a href="" class="img-link"><img src="https://traveltimes.ru/wp-content/uploads/2022/07/310059-oslo-wallpaper-oslo-wallpaper-oslo.jpg" alt="" width="300" height="400"></a>
+              </div>
+
+              <div class="product-small__info">
+                <h4 class="title  product-small__title"><a href="">Оливье с подкопченной утиной грудкой магре</a></h4>
+
+                <p class="product-small__price">1 250 руб.</p>
+
+                <p class="product-small__weight">150 г.</p>
+              </div>
+
+              <div class="product-small__controls">
+                <form action="" class="qty-form  js-add-in-cart-form">
+                  <div class="qty-form__count  js-count">
+                    <button class="qty-form__button  qty-form__button--minus  js-count-minus">
+                      <span class="visually-hidden">Увеличить</span>
+                    </button>
+
+                    <input type="number" step="1" min="1" value="1" name="quantity" class="qty-form__input  js-count-field">
+
+                    <button class="qty-form__button  qty-form__button--plus  js-count-plus">
+                      <span class="visually-hidden">Уменьшить</span>
+                    </button>
+                  </div>
+
+                  <button class="button  qty-form__submit  button--gold-white  js-add-in-cart" type="submit">Добавить</button>
+                </form>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer  footer--green  footer--margin-top">
+        <div class="box  footer__empty-box">
+          <div class="box__decor  footer__decor-1  box__decor--top  box__decor--green"></div>
+          <div class="footer__decor-2"></div>
+        </div>
+
+        <div class="box  footer__content">
+          <div class="box__decor  box__decor--top  box__decor--green"></div>
+
+          <div class="columns-wrapper  footer__columns">
+            <div class="column  footer__left  column--2-5  column--vertical">
+              <a href="" class="footer__logo">
+                <img src="./img/logo_rp_green.svg" alt="Русское Подворье" width="169" height="178">
+              </a>
+
+              <div class="footer__contacts">
+                <div class="footer__phones">
+                  <a href="tel:+74952152138">+7 495 215–21–38</a>
+
+                  <a href="tel:+79671504649">+7 967 150–46–49</a>
+                </div>
+
+                <a href="mailto:manager@russkoepodvorie.com">manager@russkoepodvorie.com</a>
+
+                <address class="footer__address">
+                  Москва, Симферопольский Бульвар, д. 16, к. 1
+                  <br>м. Каховская / м. Севастопольская / м. Варшавская
+                  <br>Время работы: 12:00 — 00:00
+                </address>
+
+                <div class="footer__social">
+                  <p>Русское Подворье в соцсетях</p>
+
+                  <a href="">
+                    <svg width="36px" height="33px" focusable="false" aria-hidden="true">
+                      <use xlink:href="#icon_vk"></use>
+                    </svg>
+
+                    <span class="visually-hidden">Русское Подворье Вконтакте</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer__payment">
+                <span>Мы принимаем к оплате карты</span>
+
+                <svg width="269px" height="32px" focusable="false" aria-hidden="true">
+                  <use xlink:href="#icon_cards"></use>
+                </svg>
+              </div>
+
+              <div class="footer__copyright">
+                2023 © «Русское подворье»
+              </div>
+            </div>
+
+
+            <div class="column  footer__right  column--3-5  column--vertical">
+              <nav class="footer__menu">
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">Меню</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">Основное меню</a></li>
+                    <li><a href="">Блюда для компании</a></li>
+                    <li><a href="">Десерты</a></li>
+                    <li><a href="">Барная карта</a></li>
+                    <li><a href="">Винная карта</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">Банкеты</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">Новогодние корпоративы</a></li>
+                    <li><a href="">Свадьбы</a></li>
+                    <li><a href="">Дни рождения</a></li>
+                    <li><a href="">Юбилеи</a></li>
+                    <li><a href="">Свидания</a></li>
+                    <li><a href="">Поминки</a></li>
+                    <li><a href="">Крестины</a></li>
+                    <li><a href="">Корпоративы</a></li>
+                    <li><a href="">Детские праздники</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">Залы</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">Торжественный</a></li>
+                    <li><a href="">Особый</a></li>
+                    <li><a href="">Каминный</a></li>
+                    <li><a href="">Музыкальный</a></li>
+                    <li><a href="">Новый</a></li>
+                    <li><a href="">Кабинет</a></li>
+                    <li><a href="">Веранда</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer__menu-column">
+                  <p class="text  text--strong">О нас</p>
+
+                  <ul class="footer__menu-wrapper">
+                    <li><a href="">О ресторане</a></li>
+                    <li><a href="">Мероприятия</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Рецепты от шефа</a></li>
+                    <li><a href="">Отзывы</a></li>
+                    <li><a href="">Контакты</a></li>
+                  </ul>
+                </div>
+              </nav>
+
+              <div class="footer__projects">
+                <p>Наши проекты в Суздале</p>
+
+                <div class="footer__projects-wrapper">
+                  <a href="" class="img-link">
+                    <img src="./img/logo_dobrolubovo_green.png" alt="" width="266" height="189">
+                  </a>
+
+                  <a href="" class="img-link">
+                    <img src="./img/logo_rp_old_green.png" alt="" width="266" height="189">
+                  </a>
+
+                  <a href="" class="img-link">
+                    <img src="./img/logo_ugol_green.png" alt="" width="266" height="189">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <dialog class="modal  js-modal" id="">
+        <div class="modal__content-wrapper">
+          <button class="modal__close  js-modal-close">
+            <span class="visually-hidden">Закрыть окно</span>
+          </button>
+
+          <article class="modal__content">
+
+          </article>
+        </div>
+      </dialog>
+    </div>
+  </div>
+</body>
+</html>

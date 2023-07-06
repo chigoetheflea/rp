@@ -26,22 +26,12 @@
   max-width: @maxWidth;
 }
 
-.spinner {
-  position: relative;
+.bg-gold() {
+  background: @gold url('../img/bg_noise.jpg') 50% 50%;
+  background-blend-mode: color-burn;
 
-  &::before {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    width: 20px;
-    height: 20px;
-    margin-left: -10px;
-    margin-top: -10px;
-
-    border: 2px solid @gold;
-    animation: rotate infinite 1s linear;
-    transform-origin: 50% 50%;
-    content: '';
+  *::selection {
+    color: @gold;
+    background-color: @green;
   }
 }

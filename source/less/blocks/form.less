@@ -57,6 +57,11 @@
   border-radius: 20px;
   border: 1px solid @green;
 
+  &::placeholder {
+    color: @green;
+    opacity: 0.5;
+  }
+
   &:focus {
     background: white;
 
@@ -65,7 +70,8 @@
   }
 
   &--error {
-    border-color: @red;
+    background-color: @red;
+    animation: error 0.25s 1 ease-in;
   }
 }
 

@@ -8,6 +8,12 @@
     align-self: baseline;
     text-decoration: none;
   }
+
+  &--big {
+    font-size: 36px;
+    line-height: 1.5;
+    font-family: 'Prata', serif;
+  }
 }
 
 .contacts__email {
@@ -27,6 +33,22 @@
 
 .contacts__frame {
   height: 500px;
+}
+
+@media (max-width: @break-point-2) {
+  .contacts__phones {
+    &--big {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .contacts__phones {
+    &--big {
+      margin-top: 0;
+    }
+  }
 }
 
 @media (max-width: @break-point-mobile) {

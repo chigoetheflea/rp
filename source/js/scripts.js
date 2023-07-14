@@ -695,7 +695,6 @@ document.addEventListener(`DOMContentLoaded`, function() {
     scrollTrigger: {
       trigger: GSAP_CHAIN_TRIGGER,
       scrub: true,
-      start: `top bottom`,
     },
   });
 
@@ -710,12 +709,12 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   const defaultCoords = [55.651942, 37.604732];
 
-  const coords = (typeof mapMarker !== `undefined`)
-    ? (mapMarker.coords).replace(` `, ``).split(`,`)
+  const coords = (typeof phpHandler !== `undefined`)
+    ? (phpHandler.coords).replace(` `, ``).split(`,`)
     : defaultCoords;
 
-  const markerUrl = (typeof mapMarker !== `undefined`)
-    ? mapMarker.url
+  const markerUrl = (typeof phpHandler !== `undefined`)
+    ? phpHandler.marker
     : MAP_MARKER_PATH;
 
   const currentMarkerSize = MARKER_MOBILE_SIZE;

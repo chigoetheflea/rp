@@ -690,13 +690,15 @@ document.addEventListener(`DOMContentLoaded`, function() {
     }
   }
 
-  gsap.fromTo(GSAP_CHAIN, {x: 0}, {
-    x: -1500,
-    scrollTrigger: {
-      trigger: GSAP_CHAIN_TRIGGER,
-      scrub: true,
-    },
-  });
+  setTimeout(() => {
+    gsap.fromTo(GSAP_CHAIN, {x: 0}, {
+      x: -1500,
+      scrollTrigger: {
+        trigger: GSAP_CHAIN_TRIGGER,
+        scrub: true,
+      },
+    });
+  }, 1000);
 
   /* gsap */
 

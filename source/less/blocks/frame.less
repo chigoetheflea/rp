@@ -47,6 +47,10 @@
   height: 100%;
   overflow: hidden;
   border-radius: 30px;
+
+  &--flex {
+    display: flex;
+  }
 }
 
 .frame__decor {
@@ -101,6 +105,11 @@
   }
 }
 
+.frame__video {
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: @break-point-2) {
   .frame__border {
     padding: 30px;
@@ -108,6 +117,21 @@
 
   .frame__content {
     border-radius: 20px;
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .frame {
+    &--minimal {
+      .frame__decor {
+        display: none;
+      }
+
+      .frame__border {
+        padding: 0;
+        border: none;
+      }
+    }
   }
 }
 
@@ -123,6 +147,15 @@
     &::before {
       width: 30px;
       height: 30px;
+    }
+  }
+
+  .frame {
+    &--minimal {
+      .frame__border {
+        padding: 0;
+        border: none;
+      }
     }
   }
 }

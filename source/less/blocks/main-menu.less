@@ -12,6 +12,16 @@
 
   a:not(.button) {
     color: @green;
+
+    &:hover,
+    &:focus {
+      color: @gold-dark;
+    }
+
+    &:active {
+      color: @green;
+      opacity: @active-opacity;
+    }
   }
 
   &--closed {

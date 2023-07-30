@@ -8,7 +8,14 @@
 
   img {
     width: 50%;
+    align-self: flex-start;
   }
+}
+
+.prices__frame {
+  max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (max-width: @break-point-3) {
@@ -16,6 +23,12 @@
     img {
       width: 100%;
     }
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .prices__frame {
+    max-width: 100%;
   }
 }
 

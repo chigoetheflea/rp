@@ -1,0 +1,40 @@
+.reviews__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px 100px;
+  margin-top: 75px;
+
+  a {
+    flex-basis: 150px;
+
+    &:hover,
+    &:focus {
+      opacity: @hover-opacity;
+    }
+
+    &:active {
+      opacity: @active-opacity;
+    }
+  }
+
+  img {
+    max-height: 66px;
+  }
+}
+
+.reviews__title {
+  margin-top: 50px;
+}
+
+.reviews__button {
+  margin-top: 75px;
+}
+
+
+@media (max-width: @break-point-3) {
+  .reviews__title {
+    margin-top: 0;
+  }
+}

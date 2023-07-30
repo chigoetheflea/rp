@@ -1,0 +1,28 @@
+.sound__wrapper {
+  align-items: flex-start;
+  gap: 30px 100px;
+  margin-top: 50px;
+}
+
+@media (max-width: @break-point-2) {
+  .sound__item {
+    min-width: 33%;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .sound__wrapper {
+    gap: @gap;
+  }
+
+  .sound__item {
+    width: 100%;
+    max-width: calc((100% - @gap) / 2);
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .sound__item {
+    max-width: 100%;
+  }
+}

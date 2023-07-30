@@ -4,6 +4,10 @@
       padding-left: 75px;
       padding-right: 30px;
     }
+
+    .hall__image-wrapper {
+      order: 1;
+    }
   }
 
   &--title {
@@ -11,6 +15,10 @@
       padding-left: 0;
     }
   }
+}
+
+.hall__subtitle {
+  margin: 0 0 15px 2px;
 }
 
 .hall__image {
@@ -99,6 +107,14 @@
 }
 
 @media (max-width: @break-point-tablet) {
+  .hall {
+    &--reverse {
+      .hall__image-wrapper {
+        order: 0;
+      }
+    }
+  }
+
   .hall__image-wrapper {
     justify-content: center;
     padding: 50px 0 0 0;

@@ -13,11 +13,24 @@
 
 .services__text {
   margin: 30px 0 0 0;
+
+  &--center {
+    margin-top: 15px;
+    text-align: center;
+  }
 }
 
 .services__price {
   margin: 30px 0 0 0;
   font-size: 36px;
+  font-family: "Prata", "Times New Roman";
+  font-weight: 500;
+}
+
+.services__small-price {
+  margin: 30px 0 0 0;
+  font-size: 24px;
+  text-align: center;
   font-family: "Prata", "Times New Roman";
   font-weight: 500;
 }
@@ -31,6 +44,27 @@
   padding-bottom: 30px;
 }
 
+.services__info {
+  margin-top: 30px;
+}
+
+.services__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @gap * 1.5 @gap;
+
+  &--row {
+    flex-direction: row;
+  }
+}
+
+.services__small-title {
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
 @media (max-width: @break-point-2) {
   .services__image {
     height: 300px;
@@ -38,6 +72,10 @@
 
   .services__item {
     flex-direction: column;
+  }
+
+  .services__small-item {
+    max-width: calc((100% - @gap) / 2);
   }
 
   .services__left,
@@ -60,5 +98,9 @@
   .services__image {
     width: calc(100vw - 100px);
     height: calc(100vw - 30px);
+  }
+
+  .services__small-item {
+    max-width: 100%;
   }
 }

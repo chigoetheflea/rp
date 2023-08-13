@@ -19,12 +19,29 @@
 
 .blog-small__meta {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
+}
 
-  time {
-    font-size: 13px;
+.blog-small__publish-date {
+  font-size: 13px;
+}
+
+.blog-small__start-date {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+
+  svg {
+    fill: @green;
+  }
+
+  p {
+    margin: 0;
   }
 }
 

@@ -41,6 +41,41 @@
   width: 100%;
 }
 
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-attention {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+
+  &::before {
+    display: none;
+  }
+}
+
+.woocommerce-info {
+  background-color: @gold;
+  color: @green;
+}
+
+.woocommerce-error {
+  background-color: @red;
+  color: @gold;
+}
+
+.woocommerce-attention {
+  background-color: @green;
+  color: @gold;
+}
+
+.woocommerce {
+  .return-to-shop {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+
 @media (max-width: @break-point-tablet) {
   .single-hall__gallery {
     .gallery-item {

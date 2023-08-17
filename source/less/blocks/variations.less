@@ -1,0 +1,74 @@
+.variations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3px 5px;
+  width: 100%;
+  padding: 10px 0 15px 0;
+
+  border-top: 1px dashed @green;
+  border-bottom: 1px solid @green;
+}
+
+.variations__label {
+  position: relative;
+
+  &:hover,
+  &:focus {
+    .variations__name {
+      background-color: @green;
+      color: white;
+    }
+  }
+
+  &:active {
+    .variations__name {
+      background-color: @gold;
+      color: @green;
+    }
+  }
+}
+
+.variations__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+  pointer-events: none;
+
+  &:focus + .variations__name {
+    background-color: @green;
+    color: white;
+    outline: 1px dotted @green;
+    outline-offset: 5px;
+  }
+
+  &:checked + .variations__name {
+    background-color: @gold;
+    color: @green;
+  }
+}
+
+.variations__name {
+  .transition();
+
+  margin: 0;
+  padding: 4px 10px;
+
+  font-size: 16px;
+
+  background-color: @green-superlight;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.variations__title {
+  margin: 0;
+  width: 100%;
+  font-weight: 700;
+}

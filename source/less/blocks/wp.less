@@ -41,10 +41,18 @@
   width: 100%;
 }
 
+.woocommerce-NoticeGroup {
+  width: 100%;
+}
+
 .woocommerce-info,
 .woocommerce-error,
 .woocommerce-attention {
+  .list-style-none;
+
+  width: 100%;
   padding: 10px 20px;
+  margin: 0;
   border: none;
   border-radius: 20px;
 
@@ -60,7 +68,7 @@
 
 .woocommerce-error {
   background-color: @red;
-  color: @gold;
+  color: white;
 }
 
 .woocommerce-attention {
@@ -68,12 +76,70 @@
   color: @gold;
 }
 
-.woocommerce {
-  .return-to-shop {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+.highlight {
+  margin: 0 0 30px 0;
+  font-family: "Prata", "Times New Roman";
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.size-full {
+  max-width: 800px;
+  max-height: 800px;
+  margin: 30px auto;
+}
+
+.block-bg-gold,
+.block-bg-green,
+.block-border-green {
+  padding: 20px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+}
+
+.block-bg-gold {
+  .bg-gold();
+}
+
+.block-bg-green {
+  color: white;
+  background-color: @green;
+
+  a {
+    color: white;
+
+    &:hover,
+    &:focus {
+      color: white;
+      opacity: @hover-opacity;
+    }
+
+    &:active {
+      opacity: @active-opacity;
+    }
   }
+}
+
+.block-border-green {
+  font-size: 16px;
+
+  td {
+    background-color: white;
+    border: 1px solid @green;
+  }
+}
+
+.checkout__table .woocommerce-shipping-totals {
+  th,
+  td {
+    border-top: 1px solid @green;
+    border-bottom: 1px solid @green;
+  }
+}
+
+.woocommerce-shipping-destination {
+  display: none;
 }
 
 @media (max-width: @break-point-tablet) {
@@ -82,12 +148,32 @@
       max-width: calc((100% - 30px) / 2);
     }
   }
+
+  .block-bg-gold,
+  .block-bg-green,
+  .block-border-green {
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .block-bg-gold,
+  .block-bg-green,
+  .block-border-green {
+    border-radius: 10px;
+  }
 }
 
 @media (max-width: @break-point-4) {
   .single-hall__gallery {
     .gallery-item {
       max-width: 100%;
+    }
+  }
+
+  .woocommerce-shipping-totals {
+    .woocommerce-shipping-methods {
+      font-size: 13px;
     }
   }
 }

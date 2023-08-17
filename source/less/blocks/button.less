@@ -11,11 +11,23 @@
   white-space: nowrap;
   text-decoration: none;
   font-weight: 700;
+  line-height: 1.5;
 
   background: none;
   overflow: hidden;
+  border: none;
   border-radius: 3px;
   cursor: pointer;
+
+  p {
+    display: inline;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  br {
+    display: none !important;
+  }
 
   &::after,
   &::before {
@@ -253,12 +265,30 @@
     }
   }
 
-  &--loading {
+  &--loading,
+  &--loading:active,
+  &--loading:focus,
+  &--loading:hover,
+  &--added,
+  &--added:active,
+  &--added:focus,
+  &--added:hover {
     pointer-events: none;
     cursor: default;
     opacity: @hover-opacity;
     color: transparent;
+    outline: none;
 
+    &::after,
+    &::before {
+      transition: none;
+    }
+  }
+
+  &--loading,
+  &--loading:active,
+  &--loading:focus,
+  &--loading:hover {
     &::after,
     &::before {
       top: 50%;
@@ -274,6 +304,32 @@
     &::after {
       margin: -8px 0 0 4px;
       animation-delay: 0.2s;
+    }
+  }
+
+  &--added,
+  &--added:active,
+  &--added:focus,
+  &--added:hover {
+    &::after,
+    &::before {
+      background-color: white;
+      border-radius: 0;
+      top: 50%;
+      left: 50%;
+      margin: 0;
+    }
+
+    &::before {
+      width: 20px;
+      height: 5px;
+      transform: rotate(-45deg) translate(-3px, -7px);
+    }
+
+    &::after {
+      width: 10px;
+      height: 5px;
+      transform: rotate(45deg) translate(-8px, 7px);
     }
   }
 }

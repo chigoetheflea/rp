@@ -84,6 +84,7 @@ const COUNT = `.js-count`;
 const COUNT_FIELD = `.js-count-field`;
 const COUNT_MINUS = `js-count-minus`;
 const COUNT_PLUS = `js-count-plus`;
+const COUNT_UPDATE_BUTTON = `.js-cart-update`;
 
 const Test = {
   REQUIRED: `required`,
@@ -806,7 +807,8 @@ document.addEventListener(`DOMContentLoaded`, function() {
   const countFields = Array.from(document.querySelectorAll(COUNT));
 
   const changeCount = (target) => {
-    const field = target.parentNode.querySelector(COUNT_FIELD);
+    const field = target.closest(COUNT).querySelector(COUNT_FIELD);
+    const updateButton = document.querySelector(COUNT_UPDATE_BUTTON);
     let value = field.value;
 
     if (target.classList.contains(COUNT_MINUS)) {
@@ -818,6 +820,10 @@ document.addEventListener(`DOMContentLoaded`, function() {
     }
 
     field.value = value;
+
+    if (updateButton) {
+      updateButton.disabled = false;
+    }
   };
 
   const handleCountButtonClick = (evt) => {

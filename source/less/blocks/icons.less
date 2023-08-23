@@ -35,6 +35,15 @@
   .icons__item {
     flex-direction: row;
     gap: 30px;
+    width: 100%;
     text-align: left;
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .icons__item {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }

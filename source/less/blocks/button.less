@@ -98,6 +98,15 @@
     }
   }
 
+  &--gold {
+    &:active {
+      color: #ffffff;
+      background-color: @gold-dark;
+      outline: 1px dotted @gold;
+      outline-offset: 5px;
+    }
+  }
+
   &--gold-white {
     &::after,
     &::before {
@@ -112,11 +121,48 @@
     }
   }
 
-  &--solid-green {
+  &--solid-green,
+  &--solid-green-white {
     color: white;
     background-color: @green;
     border: none;
 
+    &::after,
+    &::before {
+      z-index: 100;
+    }
+  }
+
+  &--solid-green-white {
+    &::after,
+    &::before {
+      background-color: #ffffff;
+      border: 1px solid #ffffff;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @green-light;
+      border-color: @green;
+      color: @green;
+    }
+
+    &:focus {
+      outline-color: @green;
+    }
+
+    &:active {
+      color: white;
+      background-color: @green;
+      border-color: @green;
+
+      .button__overlay {
+        border-color: @green;
+      }
+    }
+  }
+
+  &--solid-green {
     &::after,
     &::before {
       z-index: 100;
@@ -147,7 +193,8 @@
   }
 
   &--green,
-  &--green-gold {
+  &--green-gold,
+  &--gold-frame {
     color: @green;
     border-radius: 5px;
 
@@ -196,6 +243,42 @@
 
       .button__overlay {
         border-color: @green;
+      }
+    }
+  }
+
+  &--gold-frame {
+    color: @gold;
+
+    &::after,
+    &::before {
+      background-color: @green;
+      border-color: @gold;
+    }
+
+    .button__overlay {
+      border-color: @gold;
+    }
+
+    &:hover,
+    &:focus {
+      color: @green;
+      background-color: @gold-dark;
+
+      .button__overlay {
+        border-color: @gold-dark;
+      }
+    }
+
+    &:active {
+      color: white;
+      background-color: @gold-dark;
+      border-color: @gold-dark;
+      outline: 1px dotted @gold;
+      outline-offset: 5px;
+
+      .button__overlay {
+        border-color: @gold-dark;
       }
     }
   }

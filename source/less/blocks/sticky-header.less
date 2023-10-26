@@ -1,0 +1,150 @@
+.sticky-header {
+  .transition();
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+
+  width: 100%;
+
+  background-color: #ffffff;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  border-bottom: 1px solid @green;
+
+  &--green {
+    background: @green url('../img/bg_noise.jpg') 50% 50%;
+    background-blend-mode: multiply;
+    border-bottom-color: @gold;
+  }
+
+  &--active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sticky-header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 0;
+}
+
+.sticky-header__logo {
+  img {
+    width: 114px;
+    height: 80px;
+  }
+}
+
+.sticky-header__menu {
+  margin: 0 auto;
+
+  ul {
+    .list-style-none();
+
+    display: flex;
+    gap: 5px 30px;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
+
+.sticky-header__controls {
+  display: flex;
+  gap: 10px;
+}
+
+.sticky-header__button {
+  padding: 10px 25px;
+}
+
+.sticky-header__contacts {
+  margin-left: auto;
+  text-align: center;
+}
+
+.sticky-header__phone {
+  line-height: 1;
+  font-family: 'Prata', serif;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.sticky-header__address {
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.sticky-header__menu-button {
+  display: none;
+}
+
+@media (max-width: @break-point-0) {
+  .sticky-header__controls {
+    flex-direction: column;
+    gap: 5px 0;
+  }
+}
+
+@media (max-width: @break-point-1) {
+  .sticky-header__menu-button {
+    display: flex;
+  }
+
+  .sticky-header__menu,
+  .sticky-header__controls {
+    display: none;
+  }
+
+  .sticky-header__contacts {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .sticky-header__wrapper {
+    gap: 15px;
+  }
+
+  .sticky-header__phone {
+    font-size: 18px;
+  }
+
+  .sticky-header__address {
+    font-size: 12px;
+    padding: 0 15px;
+  }
+
+  .sticky-header__logo {
+    img {
+      width: 85px;
+      height: 60px;
+    }
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .sticky-header__contacts {
+    display: none;
+  }
+
+  .sticky-header__menu-button {
+    margin-left: auto;
+  }
+
+  .sticky-header__logo {
+    img {
+      width: 71px;
+      height: 50px;
+    }
+  }
+}

@@ -6,7 +6,9 @@
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  min-height: 400px;
+  min-height: 500px;
+
+  color: @gold;
 
   overflow: hidden;
   border-radius: 50px;
@@ -40,6 +42,36 @@
     border: 1px solid @gold;
     border-radius: 30px;
     pointer-events: none;
+  }
+
+  &--inner {
+    margin-top: 50px;
+    min-height: 0;
+
+    .banner__content {
+      padding-bottom: 75px;
+    }
+  }
+
+  &--small {
+    min-height: 0;
+    border-radius: 30px;
+
+    &::before {
+      display: none;
+    }
+
+    .banner__img {
+      animation: none;
+    }
+
+    .banner__content {
+      padding: 25px 25px;
+    }
+
+    .banner__type {
+      font-size: 12px;
+    }
   }
 }
 
@@ -132,6 +164,12 @@
     &::before {
       display: none;
     }
+
+    &--inner {
+      .banner__content {
+        padding-bottom: 25px;
+      }
+    }
   }
 }
 
@@ -157,6 +195,5 @@
   .banner__button {
     align-self: center;
     width: 100%;
-
   }
 }

@@ -1,0 +1,30 @@
+.related-banners {
+  margin-top: 50px;
+}
+
+.related-banners__wrapper {
+  display: flex;
+  gap: @gap;
+  margin-top: 30px;
+}
+
+.related-banners__item {
+  flex-grow: 1;
+}
+
+@media (max-width: @break-point-2) {
+  .related-banners {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .related-banners__wrapper {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .related-banners__item {
+    width: 100%;
+  }
+}

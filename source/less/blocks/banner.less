@@ -1,0 +1,162 @@
+.banner {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 400px;
+
+  overflow: hidden;
+  border-radius: 50px;
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+
+  &::after {
+    z-index: 75;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to right,  rgba(0,0,0,0.9) 30%,rgba(0,0,0,0.3) 100%);
+    background-blend-mode: multiply;
+  }
+
+  &::before {
+    z-index: 150;
+    top: 25px;
+    left: 25px;
+
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+
+    border: 1px solid @gold;
+    border-radius: 30px;
+    pointer-events: none;
+  }
+}
+
+.banner__content {
+  position: relative;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 75px 25% 110px 11%;
+}
+
+.banner__img {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  z-index: 50;
+
+  width: calc(100% + 100px);
+  height: 100%;
+
+  object-fit: cover;
+  animation: slowmove 30s infinite ease;
+}
+
+.banner__button {
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+.banner__title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.banner__type {
+  align-self: flex-start;
+  margin-bottom: 15px;
+  padding: 7px 10px;
+
+  font-size: 14px;
+  line-height: 1;
+  color: @green;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+
+  background-color: @gold;
+  border-radius: 10px;
+}
+
+.banner__text {
+  p {
+    margin: 5px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: @break-point-0) {
+  .banner__content {
+    padding: 75px 25% 110px 100px;
+  }
+}
+
+@media (max-width: @break-point-1) {
+  .banner__content {
+    padding: 75px 25% 110px 75px;
+  }
+}
+
+@media (max-width: @break-point-2) {
+  .banner__content {
+    padding: 25px 25% 90px 50px;
+  }
+
+  .banner {
+    border-radius: 30px;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .banner__content {
+    padding: 25px 50px 120px 50px;
+  }
+}
+
+@media (max-width: @break-point-3) {
+  .banner__content {
+    padding: 25px 30px 120px 30px;
+  }
+
+  .banner {
+    &::after {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+@media (max-width: @break-point-mobile) {
+  .banner__button {
+    align-self: center;
+    width: 100%;
+
+  }
+}

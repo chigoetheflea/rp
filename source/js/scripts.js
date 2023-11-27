@@ -267,6 +267,15 @@ document.addEventListener(`DOMContentLoaded`, function() {
     changeNavText: false,
   });
 
+  const sliderBanners = initSlider(document.querySelector(`.js-slider-banners`), {
+    ...SlidersSettings,
+    slideshow: true,
+    slideshowInterval: 8000,
+    dots: false,
+    useImgAnimation: false,
+    changeNavText: false,
+  });
+
   const sliderHalls = initSlider(document.querySelector(`.js-slider-halls`), {
     ...SlidersSettings,
     slideshow: false,
@@ -420,6 +429,8 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   const displayXHRSuccess = (form) => {
     console.log(`send`);
+
+    //ym(86360556, `reachGoal`, `Bronirovanie_zala`);
 
     const resultField = form.querySelector(FORM_RESULT);
     resultField.textContent = FORM_ALERT_SUCCESS;

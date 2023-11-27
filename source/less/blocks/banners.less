@@ -1,0 +1,27 @@
+.banners {
+  border-top: 1px solid @gold;
+}
+
+.banners__slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.banners__navigation {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+}
+
+@media (max-width: @break-point-2) {
+  .banners__slider {
+    border-radius: 30px;
+  }
+
+  .banners__navigation {
+    bottom: 25px;
+  }
+}

@@ -63,16 +63,20 @@
 
   display: grid;
   grid-template-rows: min-content auto min-content;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 33.33% 33.33% 33.33%;
   grid-template-areas:
-    "logo close"
-    "menu menu"
-    "contacts cart";
+    "logo langs close"
+    "menu menu menu"
+    "contacts contacts cart";
   width: 100%;
   height: 100%;
 
   background-color: white;
   overflow-y: auto;
+}
+
+.main-menu__langs {
+  grid-area: langs;
 }
 
 .main-menu__logo {
@@ -196,9 +200,10 @@
   }
 
   .main-menu__wrapper {
-    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-columns: 25% 50% 25%;
     grid-template-areas:
-      "cart logo close"
+      "cart langs close"
+      "logo logo logo"
       "menu menu menu"
       "contacts contacts contacts";
   }
@@ -224,6 +229,11 @@
     margin-top: 30px;
     padding-top: 30px;
     border-top: 1px solid @green;
+  }
+
+  .main-menu__langs {
+    width: 100%;
+    padding-bottom: 30px;
   }
 }
 

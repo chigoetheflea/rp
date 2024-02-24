@@ -67,6 +67,10 @@
   gap: 50px;
   align-items: center;
   margin-left: auto;
+
+  &--china {
+    justify-content: flex-end;
+  }
 }
 
 .header__contacts {
@@ -87,6 +91,7 @@
 }
 
 .header__address {
+  max-width: 300px;
   font-style: normal;
   text-align: right;
   font-size: 18px;
@@ -170,6 +175,8 @@
   }
 
   .header__address {
+    max-width: 100%;
+
     span {
       display: inline;
     }
@@ -182,6 +189,10 @@
     flex-direction: column;
     gap: 10px 0;
     margin-bottom: 30px;
+  }
+
+  .header__address {
+    text-align: center;
   }
 }
 
@@ -203,6 +214,12 @@
     }
   }
 
+  .header__controls {
+    &--china {
+      top: 162px;
+    }
+  }
+
   .header--inner .header__controls {
     padding: 0 30px;
   }
@@ -218,5 +235,11 @@
   .header__address,
   .header--inner .header__address {
     font-size: 13px;
+  }
+
+  .header__controls {
+    &--china {
+      top: 145px;
+    }
   }
 }

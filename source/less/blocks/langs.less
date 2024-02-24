@@ -1,0 +1,25 @@
+.langs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.langs__item {
+  &--disabled {
+    pointer-events: none;
+    cursor: pointer;
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .langs {
+    gap: 15px;
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+
+

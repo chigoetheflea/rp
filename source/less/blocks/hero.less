@@ -91,13 +91,25 @@
 @media (max-width: @break-point-3) {
   .hero {
     padding-top: 30px;
-    min-height: 100vh;
+    min-height: 0;
   }
 
   .hero__media {
     width: 700px;
     height: 800px;
     transform: translate(-35%, -60%);
+  }
+
+  .hero__content {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .hero {
+    &--china {
+      min-height: 75vh;
+    }
   }
 }
 

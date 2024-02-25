@@ -142,6 +142,7 @@
 @media (max-width: @break-point-tablet) {
   .header {
     &--inner {
+      padding-top: 20px;
       .header__logo,
       .header__contacts,
       .header__controls {
@@ -184,6 +185,10 @@
 }
 
 @media (max-width: @break-point-3) {
+  .header--inner {
+    padding-top: 15px;
+  }
+
   .header__contacts,
   .header--inner .header__contacts {
     flex-direction: column;

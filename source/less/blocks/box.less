@@ -66,8 +66,18 @@
     border-top: none;
   }
 
+  &--border-bottom-none {
+    border-bottom: none;
+  }
+
   &--no-flower-bottom {
     &::after {
+      display: none;
+    }
+  }
+
+  &--no-flower-top {
+    &::before {
       display: none;
     }
   }

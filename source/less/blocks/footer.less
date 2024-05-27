@@ -5,6 +5,10 @@
   background-position: 50% 100%;
   background-size: auto 200px;
 
+  &--border-top {
+    border-top: 1px solid @gold;
+  }
+
   &--green {
     background-image: url('../img/pattern_green.svg');
     border-top: 1px solid @green;
@@ -191,6 +195,11 @@
   margin-top: 30px;
 }
 
+.footer__suzdal img {
+  width: 170px;
+  height: auto;
+}
+
 @media (max-width: @break-point-2) {
   .footer {
     &--green {
@@ -281,12 +290,19 @@
   .footer__menu-column {
     width: calc((100% - 30px) / 2);
   }
+
+  .footer__projects-wrapper {
+    margin-top: 15px;
+  }
+
+  .footer__suzdal img {
+    width: 120px;
+  }
 }
 
 @media (max-width: @break-point-3) {
   .footer__projects-wrapper {
     gap: 0;
-    margin-top: 15px;
   }
 }
 
@@ -311,5 +327,9 @@
       width: 100%;
       text-align: center;
     }
+  }
+
+  .footer__suzdal img {
+    width: 170px;
   }
 }

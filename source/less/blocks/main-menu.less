@@ -99,8 +99,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   width: 100%;
+  padding: 30px;
 }
 
 .main-menu__content-wrapper {
@@ -121,6 +122,8 @@
 
 .main-menu__contacts {
   grid-area: contacts;
+  display: flex;
+  flex-wrap: wrap;
 
   a {
     font-size: 30px;
@@ -128,9 +131,14 @@
     font-family: 'Prata', serif;
     text-decoration: none;
     color: @green;
+
+    &:last-of-type {
+      margin-left: 30px;
+    }
   }
 
   address {
+    width: 100%;
     margin-top: 10px;
     font-style: normal;
   }

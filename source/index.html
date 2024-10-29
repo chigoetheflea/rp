@@ -136,6 +136,7 @@
 
       <div class="main-menu__contacts">
         <a href="tel:+74954451069">+7 495 445-10-69</a>
+        <a href="tel:+74954451069">+7 495 445-10-69</a>
 
         <address>Москва, Симферопольский б-р, д. 16, к. 1</address>
       </div>
@@ -1078,7 +1079,29 @@
           <span class="visually-hidden">Связаться с нами через WhatsApp</span>
         </a>
       </section>
+<!---
+      <section class="rating  rating--margins">
+        <div class="box  rating__wrapper  box--padding-all">
+          <div class="rating__value">
+            <img src="./img/star_yandex.svg" alt="Рейтинг Яндекса" width="150" height="150">
 
+            <p class="rating__numbers">4.7</p>
+          </div>
+
+          <div class="rating__title">
+            <h2 class="title  title--medium">Хорошее место</h2>
+
+            <p class="subtitle">По версии Яндекс</p>
+          </div>
+
+          <a href="https://yandex.ru/maps/org/russkoye_podvorye/1293398147/reviews/?ll=37.604619%2C55.651887&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=17" target="_blank" class="button  rating__button  button--green-gold">
+            Смотреть Отзывы
+
+            <span class="button__overlay"></span>
+          </a>
+        </div>
+      </section>
+    -->
       <section class="cta  cta--margins">
         <div class="box  cta__wrapper  box--padding-all">
           <h2 class="title  cta__title">Будем Вам очень признательны, если Вы оставите свой отзыв!</h2>
@@ -1088,14 +1111,18 @@
           </div>
 
           <div class="cta__body">
-            <a href="" class="button  button--green-gold">
+            <a href="" class="button  cta__button  button--green-gold">
               Оставить отзыв
 
               <span class="button__overlay"></span>
             </a>
 
-            <div class="cta__widget">
-              <iframe src="https://yandex.ru/sprav/widget/rating-badge/1293398147?type=award" width="150" height="50" frameborder="0" class="img-link"></iframe>
+            <div class="cta__widget  cta__widget--static">
+              <img src="./img/star_yandex.svg" alt="Рейтинг Яндекса" width="30" height="30" class="cta__star">
+
+              <p class="cta__rating">4.7</p>
+
+              <p class="cta__text">Хорошее место</p>
             </div>
           </div>
         </div>
@@ -1257,14 +1284,22 @@
         </div>
       </footer>
 
-      <dialog class="modal  js-modal" id="">
+      <dialog class="modal  modal--closed  js-modal  js-modal-opened" id="modal-warning">
         <div class="modal__content-wrapper">
-          <button class="modal__close  js-modal-close">
-            <span class="visually-hidden">Закрыть окно</span>
-          </button>
+          <div class="modal__close-wrapper">
+            <button class="modal-close  main-menu__close  modal-close--small  js-modal-close">
+              <svg width="20px" height="20px" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon_close"></use>
+              </svg>
+
+              <span class="visually-hidden">Закрыть</span>
+            </button>
+          </div>
 
           <article class="modal__content">
+            <h2 class="title  modal__title  title--center  title--small">Уважаемые клиенты!</h2>
 
+            <p class="modal__text">2 июля наш ресторан не работает!</p>
           </article>
         </div>
       </dialog>

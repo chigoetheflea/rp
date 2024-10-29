@@ -18,6 +18,21 @@
   &--detailed {
     align-items: flex-start;
   }
+
+  &--big {
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+
+    .prop__info {
+      text-align: center;
+    }
+
+    .prop__title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
 }
 
 .prop__title {
@@ -27,6 +42,12 @@
 
 .prop__text {
   margin: 10px 0 0 0;
+}
+
+@media (max-width: @break-point-tablet) {
+  .prop--big {
+    width: 45%;
+  }
 }
 
 @media (max-width: @break-point-mobile) {

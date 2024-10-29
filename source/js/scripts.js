@@ -26,6 +26,7 @@ const MODAL_CLOSE = `.js-modal-close`;
 const MODAL_BUTTON = `.js-modal-button`;
 const MODAL_ACTIVE_CLASS = `modal--active`;
 const MODAL_CLOSED_CLASS = `modal--closed`;
+const MODAL_OPENED = `.js-modal-opened`;
 
 const SCROLL_BUTTON_CLASS = `.js-scroll`;
 const SCROLL_OFFSET = -50;
@@ -144,7 +145,7 @@ document.addEventListener(`DOMContentLoaded`, function() {
   const menuButtons = Array.from(document.querySelectorAll(MENU_BUTTON));
   let menuButtonClose = null;
 
-  if (menuButtons) {
+  if (menuButtons && menuWrapper) {
     menuButtonClose = menuWrapper.querySelector(MENU_CLOSE);
   }
 
@@ -296,14 +297,24 @@ document.addEventListener(`DOMContentLoaded`, function() {
   /* modal */
 
   const closeModal = (modal, button) => {
-    switchModalClasses(modal, {active: MODAL_ACTIVE_CLASS, closed: MODAL_CLOSED_CLASS,});
+    modal.classList.remove(MODAL_ACTIVE_CLASS);
+
+    if (modal.classList.contains(MODAL_OPENED.replace(`.`, ''))) {
+      sessionStorage.setItem(`modal_closed`, 1);
+    }
 
     button.removeEventListener(`click`, handleModalCloseClick);
   }
 
-  const openModal = (button) => {
-    const target = document.querySelector(button.dataset.target);
-    const slide = button.dataset.slide;
+  const openModal = (modal) => {
+    let target = modal;
+    let slide = null;
+
+    if (modal.target) {
+      target = document.querySelector(modal.dataset.target);
+      slide = modal.dataset.slide;
+    }
+
     const modalClose = target.querySelector(MODAL_CLOSE);
 
     if (slide) {
@@ -337,6 +348,12 @@ document.addEventListener(`DOMContentLoaded`, function() {
     modalButtons.map((modalButton) => {
       modalButton.addEventListener(`click`, handleModalButtonClick);
     });
+  }
+
+  const modalOpened = document.querySelector(MODAL_OPENED);
+
+  if (modalOpened && !sessionStorage.getItem(`modal_closed`)) {
+    openModal(modalOpened);
   }
 
   /* modal */
@@ -898,8 +915,9 @@ document.addEventListener(`DOMContentLoaded`, function() {
   const STICKY_HEADER_ACTIVE_CLASS = `sticky-header--active`;
   const STICKY_OFFSET = 300;
 
+  const stickyHeader = document.querySelector(STICKY_HEADER);
+
   const changeHeaderStatus = (isSticky) => {
-    const stickyHeader = document.querySelector(STICKY_HEADER);
 
     (isSticky)
       ? stickyHeader.classList.add(STICKY_HEADER_ACTIVE_CLASS)
@@ -912,7 +930,9 @@ document.addEventListener(`DOMContentLoaded`, function() {
     changeHeaderStatus(isSticky);
   }
 
-  document.addEventListener(`scroll`, handleWindowScroll);
+  if (stickyHeader) {
+    document.addEventListener(`scroll`, handleWindowScroll);
+  }
 
   /* sticky header */
 });

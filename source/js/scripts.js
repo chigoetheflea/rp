@@ -783,10 +783,25 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* date picker */
 
+  const calendarPlace = document.querySelector(`#reservation_date_field`);
+
   if (document.querySelectorAll(FORM_DATE).length) {
+    flatpickr.localize(flatpickr.l10ns.ru);
+
     flatpickr(FORM_DATE, {
       altFormat: FORM_DATE_FORMAT,
       altInput: true,
+      altFormat: `F, j`,
+      position: `below`,
+      locale: {
+        firstDayOfWeek: 1,
+      },
+      onOpen: () => {
+        const calendar = document.querySelector(`.flatpickr-calendar`);
+        const calendarPlace = document.querySelector(`#calendar_place`);
+
+        calendar.style.width = `${calendarPlace.getBoundingClientRect().width}px`;
+      },
     });
   }
 

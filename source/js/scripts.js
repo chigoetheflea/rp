@@ -93,6 +93,79 @@ const CART_STICKY_ICON = `.js-sticky-cart`;
 const CART_STICKY_FULL_CLASS = `sticky-icons__cart--active`;
 const ADD_IN_CART_BUTTON = `.js-add-in-cart`;
 
+const STICKY_HEADER = `.js-sticky-header`;
+const STICKY_HEADER_ACTIVE_CLASS = `sticky-header--active`;
+const STICKY_OFFSET = 300;
+
+const ACCORDION = `.js-accordion`;
+const ACCORDION_BUTTON = `.js-accordion-head`;
+const ACCORDION_ACTIVE_CLASS = `accordion__item--opened`;
+
+const HALLS_LIST = `.js-halls-list`;
+const HALLS_IMG_LIST = `.js-halls-imgs`;
+const HALL_IMG_ACTIVE_CLASS = `form__hall-img--active`;
+
+const MARKER_MOBILE_SIZE = {
+  width: 72,
+  height: 82,
+};
+
+const Russian = {
+  weekdays: {
+      shorthand: [`Вс`, `Пн`, `Вт`, `Ср`, `Чт`, `Пт`, `Сб`],
+      longhand: [
+          `Воскресенье`,
+          `Понедельник`,
+          `Вторник`,
+          `Среда`,
+          `Четверг`,
+          `Пятница`,
+          `Суббота`,
+      ],
+  },
+  months: {
+      shorthand: [
+          `Янв`,
+          `Фев`,
+          `Март`,
+          `Апр`,
+          `Май`,
+          `Июнь`,
+          `Июль`,
+          `Авг`,
+          `Сен`,
+          `Окт`,
+          `Ноя`,
+          `Дек`,
+      ],
+      longhand: [
+          `Январь`,
+          `Февраль`,
+          `Март`,
+          `Апрель`,
+          `Май`,
+          `Июнь`,
+          `Июль`,
+          `Август`,
+          `Сентябрь`,
+          `Октябрь`,
+          `Ноябрь`,
+          `Декабрь`,
+      ],
+  },
+  firstDayOfWeek: 1,
+  ordinal: function () {
+      return ``;
+  },
+  rangeSeparator: ` — `,
+  weekAbbreviation: `Нед.`,
+  scrollTitle: `Прокрутите для увеличения`,
+  toggleTitle: `Нажмите для переключения`,
+  amPM: [`ДП`, `ПП`],
+  yearAriaLabel: `Год`,
+  time_24hr: true,
+};
+
 const Test = {
   REQUIRED: `required`,
   PHONE: `phone`,
@@ -531,10 +604,6 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* __ form sending */
 
-  // const sendCallTouchData = () => {
-
-  // };
-
   /* __ form check */
 
   const testRequired = (valueToTest) => {
@@ -760,10 +829,6 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* halls select */
 
-  const HALLS_LIST = `.js-halls-list`;
-  const HALLS_IMG_LIST = `.js-halls-imgs`;
-  const HALL_IMG_ACTIVE_CLASS = `form__hall-img--active`;
-
   const hallsSelect = document.querySelector(HALLS_LIST);
   const hallsImgs = document.querySelector(HALLS_IMG_LIST);
 
@@ -786,16 +851,13 @@ document.addEventListener(`DOMContentLoaded`, function() {
   const calendarPlace = document.querySelector(`#reservation_date_field`);
 
   if (document.querySelectorAll(FORM_DATE).length) {
-    flatpickr.localize(flatpickr.l10ns.ru);
-
     flatpickr(FORM_DATE, {
       altFormat: FORM_DATE_FORMAT,
       altInput: true,
       altFormat: `F, j`,
       position: `below`,
-      locale: {
-        firstDayOfWeek: 1,
-      },
+      locale: Russian,
+      defaultDate: new Date(),
       onOpen: () => {
         const calendar = document.querySelector(`.flatpickr-calendar`);
         const calendarPlace = document.querySelector(`#calendar_place`);
@@ -835,11 +897,6 @@ document.addEventListener(`DOMContentLoaded`, function() {
   /* gsap */
 
   /* map */
-
-  const MARKER_MOBILE_SIZE = {
-    width: 72,
-    height: 82,
-  };
 
   const defaultCoords = [55.651942, 37.604732];
 
@@ -1000,10 +1057,6 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* sticky header */
 
-  const STICKY_HEADER = `.js-sticky-header`;
-  const STICKY_HEADER_ACTIVE_CLASS = `sticky-header--active`;
-  const STICKY_OFFSET = 300;
-
   const stickyHeader = document.querySelector(STICKY_HEADER);
 
   const changeHeaderStatus = (isSticky) => {
@@ -1026,10 +1079,6 @@ document.addEventListener(`DOMContentLoaded`, function() {
   /* sticky header */
 
   /* accordion */
-
-  const ACCORDION = `.js-accordion`;
-  const ACCORDION_BUTTON = `.js-accordion-head`;
-  const ACCORDION_ACTIVE_CLASS = `accordion__item--opened`;
 
   const accordions = document.querySelectorAll(ACCORDION);
 

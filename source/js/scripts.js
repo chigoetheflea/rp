@@ -758,6 +758,29 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* form select */
 
+  /* halls select */
+
+  const HALLS_LIST = `.js-halls-list`;
+  const HALLS_IMG_LIST = `.js-halls-imgs`;
+  const HALL_IMG_ACTIVE_CLASS = `form__hall-img--active`;
+
+  const hallsSelect = document.querySelector(HALLS_LIST);
+  const hallsImgs = document.querySelector(HALLS_IMG_LIST);
+
+  hallsSelect.addEventListener(`click`, (evt) => {
+    const hallNumber = evt.target.dataset.hall;
+
+    if (hallNumber) {
+      const currentHallImg = hallsImgs.querySelector(`.${HALL_IMG_ACTIVE_CLASS}`);
+      currentHallImg.classList.remove(HALL_IMG_ACTIVE_CLASS);
+
+      const newHallImg = hallsImgs.querySelector(`[data-hall="${hallNumber}"]`);
+      newHallImg.classList.add(HALL_IMG_ACTIVE_CLASS);
+    }
+  });
+
+  /* halls select */
+
   /* date picker */
 
   if (document.querySelectorAll(FORM_DATE).length) {
@@ -986,4 +1009,39 @@ document.addEventListener(`DOMContentLoaded`, function() {
   }
 
   /* sticky header */
+
+  /* accordion */
+
+  const ACCORDION = `.js-accordion`;
+  const ACCORDION_BUTTON = `.js-accordion-head`;
+  const ACCORDION_ACTIVE_CLASS = `accordion__item--opened`;
+
+  const accordions = document.querySelectorAll(ACCORDION);
+
+  function handleAccordionClick(accordion) {
+    const parent = this.parentNode;
+    const openedAccordions = accordion.querySelectorAll(`.${ACCORDION_ACTIVE_CLASS}`);
+
+    if (openedAccordions) {
+      openedAccordions.forEach((opened) => {
+        opened.classList.remove(ACCORDION_ACTIVE_CLASS);
+      });
+    }
+
+    parent.classList.toggle(ACCORDION_ACTIVE_CLASS);
+  }
+
+  if (accordions) {
+    accordions.forEach((accordion) => {
+      const accordionHeads = accordion.querySelectorAll(ACCORDION_BUTTON);
+
+      if (accordionHeads) {
+        accordionHeads.forEach((head) => {
+          head.addEventListener(`click`, handleAccordionClick.bind(head, accordion));
+        });
+      }
+    });
+  }
+
+  /* accordion */
 });

@@ -4,6 +4,18 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 20px 30px;
+
+  &--grid {
+    display: grid;
+    grid-template-areas:
+      "name phone email"
+      "hall date guests"
+      "hall text text"
+      "note note note"
+      "controls controls controls";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+  }
 }
 
 .form__row {
@@ -22,13 +34,26 @@
   }
 
   &--3-cols {
-    .form__input-wrapper {
+    & > .form__input-wrapper,
+    & > .form__column {
       width: calc((100% - @gap * 3) / 3);
     }
   }
 }
 
+.form__column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  * {
+    width: 100%;
+  }
+}
+
 .form__input-wrapper {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -41,6 +66,46 @@
     font-weight: 700;
     line-height: 1;
   }
+
+  &--name {
+    grid-area: name;
+  }
+
+  &--phone {
+    grid-area: phone;
+  }
+
+  &--email {
+    grid-area: email;
+  }
+
+  &--date {
+    grid-area: date;
+  }
+
+  &--guests {
+    grid-area: guests;
+  }
+
+  &--text {
+    grid-area: text;
+  }
+
+  &--row {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.form__date-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+.form__hall-wrapper {
+  grid-area: hall;
 }
 
 .form__input {
@@ -73,6 +138,93 @@
     background-color: @red;
     animation: error 0.25s 1 ease-in;
   }
+
+  &--stretch {
+    flex-grow: 1;
+  }
+
+  &--left {
+    position: relative;
+    border-radius: 20px 0 0 20px;
+    border-right: 1px dashed @green;
+  }
+
+  &--right {
+    border-radius: 0 20px 20px 0;
+    border-left: none;
+  }
+
+  &--number {
+    text-align: center;
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+.form__button-count {
+  .transition();
+
+  position: absolute;
+  bottom: 0;
+
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 50%;
+
+  &::after,
+  &::before {
+    .transition();
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 1px;
+    background-color: @green;
+    transform: translate(-50%, -50%);
+    content: '';
+  }
+
+  &--minus {
+    left: 21px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &--plus {
+    right: 21px;
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    border-color: @green;
+  }
+
+  &:active {
+    //background-color: @green;
+
+    &::after,
+    &::before {
+    }
+  }
 }
 
 textarea.form__input {
@@ -82,10 +234,12 @@ textarea.form__input {
 }
 
 .form__notice {
+  grid-area: note;
   margin: 0;
-  padding-left: 30px;
+
   font-size: 13px;
   line-height: 1.5;
+  text-align: center;
 
   a {
     &:hover,
@@ -101,8 +255,53 @@ textarea.form__input {
   }
 }
 
-.form__submit {
+.form__controls {
+  grid-area: controls;
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
+}
+
+.form__hall-link {
+  display: inline-block;
+  margin-top: 18px;
+  margin-left: 30px;
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.form__hall-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/2;
+  margin-top: 8px;
+
+  border: 1px solid @green;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.form__hall-img {
+  .transition();
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  aspect-ratio: 3/2;
+
+  opacity: 0;
+
+  &--active {
+    opacity: 1;
+  }
 }
 
 .form__result {
@@ -142,12 +341,64 @@ textarea.form__input {
       }
     }
   }
+
+  .form {
+    &--grid {
+      grid-template-areas:
+        "name phone"
+        "email guests"
+        "date date"
+        "hall hall"
+        "text text"
+        "note note"
+        "controls controls";
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }
 
 @media (max-width: @break-point-3) {
   textarea.form__input {
     height: 150px;
   }
+
+  .form {
+    &--grid {
+      grid-template-areas:
+        "name"
+        "phone"
+        "email"
+        "guests"
+        "date"
+        "hall"
+        "text"
+        "note"
+        "controls";
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form__hall-link {
+    display: none;
+  }
 }
 
+@media (max-width: @break-point-4) {
+  .form__input-wrapper {
+    &--row {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
 
+  .form__date-wrapper {
+    width: 100%;
+  }
+
+  .form__input {
+    &--left {
+      border-radius: 20px;
+      border-right-style: solid;
+    }
+  }
+}

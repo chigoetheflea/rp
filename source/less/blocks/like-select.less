@@ -61,6 +61,11 @@
       transform: rotate(-90deg);
     }
   }
+
+  &--right {
+    border-radius: 0 20px 20px 0;
+    border-left: none;
+  }
 }
 
 .like-select__list {
@@ -101,6 +106,37 @@
 
     &:active {
       opacity: @active-opacity;
+    }
+  }
+
+  &--compact {
+    right: 0;
+    left: unset;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200%;
+
+    li {
+      width: 25%;
+    }
+
+    a {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .like-select__button {
+    &--right {
+      border-radius: 20px;
+      border: 1px solid @green;
+    }
+  }
+
+  .like-select__list {
+    &--compact {
+      width: 100%;
     }
   }
 }

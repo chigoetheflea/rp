@@ -1,0 +1,40 @@
+.img-box {
+  display: flex;
+  gap: 30px;
+
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+.img-box__image {
+  flex-shrink: 0;
+  border-radius: 30px;
+  width: calc((100% - 30px) / 2);
+}
+
+.img-box__text {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.img-box__title {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+@media (max-width: @break-point-2) {
+  .img-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .img-box__image {
+    width: 100%;
+  }
+
+  .img-box__title {
+    margin-top: 0;
+  }
+}

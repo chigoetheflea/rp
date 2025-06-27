@@ -7,6 +7,10 @@
     height: 100%;
     object-fit: cover;
   }
+
+  &--small-radius {
+    border-radius: 30px;
+  }
 }
 
 .rounded-media__embed {
@@ -26,5 +30,9 @@
 @media (max-width: @break-point-2) {
   .rounded-media {
     border-radius: 30px;
+
+    &--small-radius {
+      border-radius: 15px;
+    }
   }
 }

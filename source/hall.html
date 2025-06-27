@@ -514,7 +514,7 @@
             </article>
           </div>
         </section>
-
+<!---
         <section class="reservation" id="reservation">
           <div class="box  box--padding-all">
             <h2 class="title  reservation__title  title--medium  title--center">Забронировать зал</h2>
@@ -610,6 +610,191 @@
               </div>
 
               <div class="form__row  form__row--center">
+                <button class="button  form__submit  button--solid-green  js-submit" type="submit">Забронировать</button>
+              </div>
+            </form>
+          </div>
+        </section>
+        --->
+
+        <section class="reservation" id="reservation">
+          <div class="box  box--padding-all">
+            <h2 class="title  reservation__title  title--medium  title--center">Забронировать зал</h2>
+
+            <p class="reservation__subtitle">Укажите желаемую дату и контакты для связи с Вами</p>
+
+            <form action="" class="form  reservation__form  form--grid  js-form" id="form-reservation">
+              <div class="form__result  js-result">Отправлено!</div>
+
+              <div class="form__input-wrapper  form__input-wrapper--name">
+                <label for="reservation_name_field">Имя и фамилия</label>
+
+                <input
+                  type="text"
+                  class="form__input"
+                  name="reservation_name"
+                  id="reservation_name_field"
+                  placeholder="Имя и фамилия"
+                  data-validate="true"
+                  data-required="true">
+              </div>
+
+              <div class="form__input-wrapper  form__input-wrapper--phone">
+                <label for="reservation_phone_field">Телефон</label>
+
+                <input
+                  type="tel"
+                  class="form__input  js-masked-input"
+                  name="reservation_phone"
+                  id="reservation_phone_field"
+                  placeholder="+7 (___) ___-__-__"
+                  data-validate="true"
+                  data-required="true"
+                  data-mask="phone">
+              </div>
+
+              <div class="form__input-wrapper  form__input-wrapper--email">
+                <label for="reservation_email_field">Email</label>
+
+                <input
+                  type="email"
+                  class="form__input"
+                  name="reservation_email"
+                  id="reservation_email_field"
+                  placeholder="Email"
+                  data-validate="true"
+                  data-required="true"
+                  data-mask="email"
+                  >
+              </div>
+
+              <div class="form__hall-wrapper">
+                <div class="form__input-wrapper">
+                  <label for="reservation_hall_field">Желаемый зал</label>
+
+                  <div class="like-select  form__like-select  js-select">
+                    <button class="button  like-select__button  button--regular  js-select-button" data-default="Любой">
+                      <span>Любой</span>
+
+                      <svg width="25px" height="21px" aria-hidden="true" focusable="false">
+                        <use xlink:href="#icon_arrow_short"></use>
+                      </svg>
+                    </button>
+
+                    <ul class="like-select__list  js-select-list  js-halls-list">
+                      <li><a href="" class="like-select__current" data-hall="0">Любой</a></li>
+                      <li><a href="" data-hall="1">Торжественный</a></li>
+                      <li><a href="" data-hall="2">Кабинет</a></li>
+                      <li><a href="" data-hall="3">Каминный</a></li>
+                      <li><a href="" data-hall="4">Библиотека</a></li>
+                      <li><a href="" data-hall="5">Музыкальный</a></li>
+                      <li><a href="" data-hall="6">Союз</a></li>
+                      <li><a href="" data-hall="7">Особый</a></li>
+                      <li><a href="" data-hall="8">Веранда</a></li>
+                    </ul>
+
+                    <input type="text" class="form__input  visually-hidden  js-select-input" name="reservation_hall" id="reservation_hall_field" value="Любой">
+                  </div>
+                </div>
+
+                <a href="" class="form__hall-link">Подробная информация о зале</a>
+
+                <div class="form__hall-img-wrapper  js-halls-imgs">
+                  <img data-hall="0" src="./img/none.png" alt="Особый зал" width="600" height="400" class="form__hall-img  form__hall-img--active">
+                  <img data-hall="1" src="./img/main.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="2" src="./img/cabinet.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="3" src="./img/fireplace.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="4" src="./img/library.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="5" src="./img/music.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="6" src="./img/souyz.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="7" src="./img/special.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                  <img data-hall="8" src="./img/terrace.jpg" alt="Особый зал" width="600" height="400" class="form__hall-img">
+                </div>
+              </div>
+
+              <div class="form__input-wrapper  form__input-wrapper--date  form__input-wrapper--row">
+                <div class="form__date-wrapper">
+                  <label for="reservation_date_field">Дата</label>
+
+                  <input type="text" class="form__input  form__input--left  js-date-picker" name="reservation_date" id="reservation_date_field" placeholder="Дата">
+                </div>
+
+                <div class="form__date-wrapper">
+                  <label for="reservation_time_field">Время</label>
+
+                  <div class="like-select  form__like-select  js-select">
+                    <button class="button  like-select__button  like-select__button--right  button--regular  js-select-button" data-default="Любой">
+                      <span>Любое</span>
+
+                      <svg width="25px" height="21px" aria-hidden="true" focusable="false">
+                        <use xlink:href="#icon_arrow_short"></use>
+                      </svg>
+                    </button>
+
+                    <ul class="like-select__list  like-select__list--compact  js-select-list  js-halls-list">
+                      <li><a href="" class="like-select__current">12:00</a></li>
+                      <li><a href="">12:30</a></li>
+                      <li><a href="">13:00</a></li>
+                      <li><a href="">13:30</a></li>
+                      <li><a href="">14:00</a></li>
+                      <li><a href="">14:30</a></li>
+                      <li><a href="">15:00</a></li>
+                      <li><a href="">15:30</a></li>
+                      <li><a href="">16:00</a></li>
+                      <li><a href="">16:30</a></li>
+                      <li><a href="">17:00</a></li>
+                      <li><a href="">17:30</a></li>
+                      <li><a href="">18:00</a></li>
+                      <li><a href="">18:30</a></li>
+                      <li><a href="">19:00</a></li>
+                      <li><a href="">19:30</a></li>
+                      <li><a href="">20:00</a></li>
+                      <li><a href="">20:30</a></li>
+                      <li><a href="">21:00</a></li>
+                      <li><a href="">21:30</a></li>
+                      <li><a href="">22:00</a></li>
+                      <li><a href="">22:30</a></li>
+                      <li><a href="">23:00</a></li>
+                    </ul>
+
+                    <input type="text" class="form__input  visually-hidden  js-select-input" name="reservation_time" id="reservation_time_field" value="12:00">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__input-wrapper  form__input-wrapper--guests  js-count">
+                <label for="reservation_email_field">Число гостей</label>
+
+                <input
+                  type="number"
+                  class="form__input  form__input--number  js-count-field"
+                  name="reservation_count"
+                  id="reservation_count_field"
+                  placeholder="1"
+                  data-validate="true"
+                  data-required="true"
+                  min="1"
+                  step="1"
+                  >
+
+                <button class="form__button-count  form__button-count--minus  js-count-minus">
+                  <span class="visually-hidden">Уменьшить</span>
+                </button>
+
+                <button class="form__button-count  form__button-count--plus  js-count-plus">
+                  <span class="visually-hidden">Увеличить</span>
+                </button>
+              </div>
+
+              <div class="form__input-wrapper  form__input-wrapper--text">
+                <label for="reservation_more_field">Комментарий</label>
+
+                <textarea name="reservation_more" id="reservation_more_field" class="form__input  form__input--stretch" placeholder="Комментарий"></textarea>
+              </div>
+
+              <p class="form__notice">Нажимая кнопку «Отправить» Вы даете свое <a href="">согласие</a> на обработку Ваших персональных данных</p>
+
+              <div class="form__controls">
                 <button class="button  form__submit  button--solid-green  js-submit" type="submit">Забронировать</button>
               </div>
             </form>
@@ -773,18 +958,6 @@
           </div>
         </div>
       </footer>
-
-      <dialog class="modal  js-modal" id="">
-        <div class="modal__content-wrapper">
-          <button class="modal__close  js-modal-close">
-            <span class="visually-hidden">Закрыть окно</span>
-          </button>
-
-          <article class="modal__content">
-
-          </article>
-        </div>
-      </dialog>
     </div>
   </div>
 </body>

@@ -10,6 +10,12 @@
 
   p {
     text-align: center;
+    margin: 15px 0 0 0;
+  }
+
+  strong:has(+ p) {
+    display: inline-block;
+    margin-bottom: 10px;
   }
 
   &--gold {
@@ -20,13 +26,67 @@
 
   &--fit {
     width: 100%;
-    max-width: 25%;
+    max-width: 20%;
     padding: 0 15px;
+  }
+
+  &--fit-2 {
+    width: 100%;
+    max-width: 30%;
+    padding: 0 15px;
+  }
+
+  &--inline {
+    max-width: 33%;
+    align-items: flex-start;
+    gap: 15px 20px;
+    padding: 0 30px;
+
+    svg {
+      flex-shrink: 0;
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
   }
 }
 
 @media (max-width: @break-point-2) {
   .icon-block {
+    &--fit {
+      max-width: 50%;
+    }
+  }
+}
+
+@media (max-width: @break-point-tablet) {
+  .icon-block {
+    &--inline {
+      max-width: 50%;
+    }
+
+    &--fit-2 {
+      max-width: 50%;
+    }
+  }
+}
+
+
+@media (max-width: @break-point-3) {
+  .icon-block {
+    &--inline {
+      max-width: unset;
+      padding: 0;
+      align-items: center;
+
+      p {
+        text-align: center;
+      }
+    }
+
+    &--fit-2,
     &--fit {
       max-width: 100%;
     }

@@ -63,8 +63,21 @@
   margin-top: 30px;
 }
 
-.delivery-terms__frame {
-  margin-top: 30px;
+.delivery-terms__zones {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0 0 0;
+  padding: 15px 0 0 5px;
+  border-top: 1px dashed @green;
+
+  span {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: @gold;
+  }
 }
 
 @media (max-width: @break-point-2) {
@@ -75,6 +88,27 @@
 
 @media (max-width: @break-point-tablet) {
   .delivery-terms__columns {
-    gap: 50px;
+    gap: 30px;
+  }
+
+  .delivery-terms__right {
+    & > * {
+      order: 2;
+    }
+  }
+
+  .delivery-terms__zones {
+    order: 1 !important;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-bottom: 50px;
+    padding: 0;
+    border: none;
+  }
+
+  .delivery-terms__zones {
+    span {
+      margin-top: 4px;
+    }
   }
 }

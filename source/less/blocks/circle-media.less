@@ -97,3 +97,36 @@
     }
   }
 }
+
+@media (max-width: @break-point-3) {
+  .circle-media {
+    &--hero {
+      border-radius: 0;
+      transform: none;
+
+      .circle-media__wrapper {
+        transform: none;
+      }
+
+      .circle-media__container {
+        border-radius: 0;
+      }
+
+      .circle-media__video {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: @break-point-4) {
+  .circle-media {
+    &--hero {
+      .circle-media__video {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+}

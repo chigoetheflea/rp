@@ -107,6 +107,25 @@
   }
 }
 
+.header__add-phone {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+
+  svg {
+    fill: @gold;
+  }
+
+  * span:last-of-type {
+    margin-top: 3px;
+  }
+
+  a:not(:last-of-type) {
+    height: 30px;
+  }
+}
+
 @media (max-width: @break-point-2) {
   .header {
     &--inner {

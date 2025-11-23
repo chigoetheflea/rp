@@ -1,0 +1,54 @@
+.dog {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  align-self: flex-start;
+  padding: 10px 20px;
+
+  text-decoration: none;
+
+  border: 1px solid @green;
+  border-radius: 15px;
+
+  &:hover,
+  &:focus {
+    background-color: @green;
+    color: #ffffff;
+
+    .dog__icon {
+      fill: #ffffff;
+    }
+  }
+
+  &--gold {
+    border-color: @gold;
+    color: @gold;
+
+    .dog__icon {
+      fill: @gold;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @gold;
+
+      color: @green !important;
+
+      .dog__icon {
+        fill: @green;
+      }
+    }
+  }
+}
+
+.dog__icon {
+  width: 100%;
+  height: auto;
+  max-width: 40px;
+  fill: @green;
+}
+
+.dog__title {
+  font-size: 16px;
+  line-height: 1.25;
+}

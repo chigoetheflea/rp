@@ -54,16 +54,15 @@
 
   position: relative;
 
-  width: 28px;
+  width: 30px;
   height: 30px;
 
   font-size: 24px;
   line-height: 1;
   cursor: pointer;
-  background: none;
+  background: #f2faf8;
   border-radius: 50%;
-  border: 1px solid @green-light;
-  transform: rotate(30deg);
+  border: none;
 
   &::after,
   &::before {
@@ -75,7 +74,7 @@
     width: 60%;
     height: 2px;
     background-color: @green;
-    transform: translate(-50%, -50%) rotate(-30deg);
+    transform: translate(-50%, -50%);
     content: '';
   }
 
@@ -87,13 +86,13 @@
 
   &--plus {
     &::after {
-      transform: translate(-50%, -50%) rotate(-120deg);
+      transform: translate(-50%, -50%) rotate(-90deg);
     }
   }
 
   &:hover,
   &:focus {
-    border-color: @green;
+    background-color: @gold;
   }
 
   &:active {

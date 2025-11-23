@@ -832,17 +832,19 @@ document.addEventListener(`DOMContentLoaded`, function() {
   const hallsSelect = document.querySelector(HALLS_LIST);
   const hallsImgs = document.querySelector(HALLS_IMG_LIST);
 
-  hallsSelect.addEventListener(`click`, (evt) => {
-    const hallNumber = evt.target.dataset.hall;
+  if (hallsSelect) {
+    hallsSelect.addEventListener(`click`, (evt) => {
+      const hallNumber = evt.target.dataset.hall;
 
-    if (hallNumber) {
-      const currentHallImg = hallsImgs.querySelector(`.${HALL_IMG_ACTIVE_CLASS}`);
-      currentHallImg.classList.remove(HALL_IMG_ACTIVE_CLASS);
+      if (hallNumber) {
+        const currentHallImg = hallsImgs.querySelector(`.${HALL_IMG_ACTIVE_CLASS}`);
+        currentHallImg.classList.remove(HALL_IMG_ACTIVE_CLASS);
 
-      const newHallImg = hallsImgs.querySelector(`[data-hall="${hallNumber}"]`);
-      newHallImg.classList.add(HALL_IMG_ACTIVE_CLASS);
-    }
-  });
+        const newHallImg = hallsImgs.querySelector(`[data-hall="${hallNumber}"]`);
+        newHallImg.classList.add(HALL_IMG_ACTIVE_CLASS);
+      }
+    });
+  }
 
   /* halls select */
 

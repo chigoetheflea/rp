@@ -122,7 +122,8 @@
   }
 
   &--solid-green,
-  &--solid-green-white {
+  &--solid-green-white,
+  &--solid-green-lightgreen {
     color: white;
     background-color: @green;
     border: none;
@@ -130,6 +131,35 @@
     &::after,
     &::before {
       z-index: 100;
+    }
+  }
+
+  &--solid-green-lightgreen {
+    &::after,
+    &::before {
+      background-color: @green-light;
+      border: 1px solid @green-light;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #ffffff;
+      border-color: #ffffff;
+      color: @green;
+    }
+
+    &:focus {
+      outline-color: @green;
+    }
+
+    &:active {
+      color: white;
+      background-color: @green;
+      border-color: @green;
+
+      .button__overlay {
+        border-color: @green;
+      }
     }
   }
 
@@ -194,7 +224,8 @@
 
   &--green,
   &--green-gold,
-  &--gold-frame {
+  &--gold-frame,
+  &--green-lightgreen {
     color: @green;
     border-radius: 5px;
 
@@ -300,7 +331,28 @@
     }
 
     &:active {
-      color: @gold;
+      color: #ffffff;
+    }
+  }
+
+  &--green-lightgreen {
+    &::after,
+    &::before {
+      background-color: @green-light;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @green;
+      color: white;
+
+      .button__overlay {
+        border-color: @green;
+      }
+    }
+
+    &:active {
+      color: #ffffff;
     }
   }
 

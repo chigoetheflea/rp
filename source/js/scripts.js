@@ -873,28 +873,23 @@ document.addEventListener(`DOMContentLoaded`, function() {
 
   /* gsap */
 
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  const imgChains = document.querySelectorAll(GSAP_CHAIN_TRIGGER);
 
-  if (document.querySelector(`body`).classList.contains(`home`)) {
-    if (!ScrollTrigger.isTouch) {
-      // ScrollSmoother.create({
-      //   wrapper: GSAP_WRAPPER,
-      //   content: GSAP_CONTENT,
-      //   smooth: 1,
-      //   effects: true,
-      // });
-    }
-  }
+  if (imgChains.length) {
+    imgChains.forEach((chainTrigger) => {
+      const chain = chainTrigger.querySelector(GSAP_CHAIN);
 
-  setTimeout(() => {
-    gsap.fromTo(GSAP_CHAIN, {x: 0}, {
-      x: -1500,
-      scrollTrigger: {
-        trigger: GSAP_CHAIN_TRIGGER,
-        scrub: true,
-      },
+      setTimeout(() => {
+        gsap.fromTo(chain, {x: 0}, {
+          x: -1500,
+          scrollTrigger: {
+            trigger: chainTrigger,
+            scrub: true,
+          },
+        });
+      }, 1000);
     });
-  }, 1000);
+  }
 
   /* gsap */
 

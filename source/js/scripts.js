@@ -412,6 +412,13 @@ document.addEventListener(`DOMContentLoaded`, function() {
     dots: false,
   });
 
+  const sliderCakes = initSlider(document.querySelector(`.js-cakes-slider`), {
+    ...SlidersSettings,
+    slideshow: true,
+    slideshowInterval: 5000,
+    dots: false,
+  });
+
   /* sliders */
 
   /* modal */
@@ -1105,4 +1112,39 @@ document.addEventListener(`DOMContentLoaded`, function() {
   }
 
   /* accordion */
+
+  /*cookie*/
+
+  const COOKIE_NAME = `rp_cookie_agree`;
+  const COOKIE_VALUE = `true`;
+  const COOKIE_ACTIVE_CLASS = `cookie-banner--opened`;
+  const COOKIE_MODAL = `.js-cookie-modal`;
+  const COOKIE_BUTTON = `.js-cookie-button`;
+  const COOKIE_MAX_AGE = 2592000; // max-age=2592000 (30 дней)
+
+  const cookieModal = document.querySelector(COOKIE_MODAL);
+
+  // Если модалки нет на странице, прекращаем работу скрипта, чтобы не было ошибок
+  if (!cookieModal) return;
+
+  const cookieButton = cookieModal.querySelector(COOKIE_BUTTON);
+
+  const hasCookie = document.cookie.includes(`${COOKIE_NAME}=${COOKIE_VALUE}`);
+
+  if (!hasCookie) {
+      cookieModal.classList.add(COOKIE_ACTIVE_CLASS);
+  }
+
+  if (cookieButton) {
+      cookieButton.addEventListener(`click`, (evt) => {
+          evt.preventDefault();
+
+          document.cookie = `${COOKIE_NAME}=${COOKIE_VALUE}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=strict`;
+
+          cookieModal.classList.remove(COOKIE_ACTIVE_CLASS);
+      });
+  }
+
+	/*cookie*/
+
 });

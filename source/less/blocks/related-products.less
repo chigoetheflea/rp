@@ -1,0 +1,23 @@
+.related-products {
+  position: relative;
+  margin-top: 50px;
+  padding-top: 30px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 200%;
+    height: 1px;
+
+    background-color: @green;
+    transform: translateX(-50%);
+
+    content: '';
+  }
+}
+
+.related-products__items {
+  margin-top: 30px;
+}

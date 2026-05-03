@@ -1,0 +1,160 @@
+.single-product__wrapper {
+  margin-top: 80px;
+}
+
+.single-product__left,
+.single-product__right {
+  width: 50%;
+}
+
+.single-product__desc,
+.single-product__info {
+  margin-top: 30px;
+}
+
+.single-product__left {
+  padding-right: 50px;
+}
+
+.single-product__desc {
+  font-style: italic;
+}
+
+.single-product__info {
+  width: fit-content;
+  background-color: @green-superlight;
+  padding: 0 15px;
+  border-radius: 10px;
+
+  td {
+    padding: 0;
+    border: none;
+  }
+}
+
+.single-product__att {
+  width: 100%;
+
+  & > tbody > tr > td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &:first-of-type {
+      font-weight: 700;
+      padding-right: 50px;
+    }
+  }
+}
+
+.single-product__pfc {
+  tr:first-of-type {
+    td {
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  td {
+    padding-right: 30px;
+    line-height: 2;
+  }
+}
+
+.single-product__pfc-wrapper {
+  & > td {
+    border-top: 1px dashed @green;
+  }
+}
+
+.single-product__controls {
+  margin-top: 50px;
+}
+
+.single-product__price {
+  font-family: "Prata", "Times New Roman";
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.single-product__img {
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 30px;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.single-product__title {
+  text-wrap: balance;
+}
+
+@media (max-width: @break-point-2) {
+    .single-product__left,
+    .single-product__right {
+      width: 100%;
+      padding: 0;
+    }
+
+    .single-product__left {
+      order: 1;
+      margin-top: 50px;
+    }
+
+    .single-product__info {
+      width: 100%;
+    }
+}
+
+@media (max-width: @break-point-3) {
+  .single-product__att {
+    & > tr,
+    & > tr > td {
+      display: block;
+    }
+  }
+
+  .single-product__pfc-wrapper {
+    & > td {
+      display: block;
+      width: 100%;
+
+      &:first-of-type {
+        padding-top: 10px;
+        padding-bottom: 0;
+      }
+
+      &:last-of-type {
+        padding-bottom: 10px;
+        padding-top: 5px;
+        border: none;
+      }
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .single-product__weight {
+    display: flex;
+    width: 100%;
+
+    & > td:last-of-type {
+      flex-grow: 1;
+    }
+  }
+
+  .single-product__pfc {
+    width: 100%;
+
+    td {
+      padding: 0;
+      width: 25%;
+    }
+  }
+}

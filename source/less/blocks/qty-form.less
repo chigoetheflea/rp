@@ -4,6 +4,10 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 15px 30px;
+
+  &--left {
+    justify-content: flex-start;
+  }
 }
 
 .qty-form__submit {
@@ -24,6 +28,12 @@
   &--center {
     justify-content: center;
     align-items: center;
+  }
+
+  &--bordered {
+    border: 1px solid @green;
+    padding: 0 10px;
+    border-radius: 10px;
   }
 }
 
@@ -108,11 +118,26 @@
 @media (max-width: @break-point-2) {
   .qty-form {
     flex-direction: column;
+
+    &--left {
+      flex-direction: row;
+    }
   }
 }
 
 @media (max-width: @break-point-3) {
   .qty-form {
     flex-direction: row;
+
+    &--left {
+      gap: 15px;
+
+      .qty-form__count,
+      .qty-form__input {
+        flex-grow: 1;
+      }
+    }
   }
 }
+
+
